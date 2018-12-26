@@ -22,6 +22,8 @@ TagManager:
   - EnemyBullet
   - Floor
   - Wall
+  - Endforest
+  - Endtown
   layers:
   - Default
   - TransparentFX
@@ -56,6 +58,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 726884735
+    locked: 0
+  - name: MiddleGround
+    uniqueID: 2392518811
+    locked: 0
   - name: Foreground
     uniqueID: 3459898677
     locked: 0

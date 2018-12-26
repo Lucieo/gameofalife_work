@@ -59,11 +59,12 @@ public class Player : Character {
     [SerializeField] AudioSource Throw;
     [SerializeField] AudioSource Hurt;
     [SerializeField] AudioSource CollectCoin;
+    [SerializeField] AudioSource ThrowPlayer;
+    [SerializeField] AudioSource WinLevel;
 
     private Vector2 crouchSize = new Vector2(1.63f, 1.8f);
     private Vector2 crouchOffset = new Vector2(0f, -1.3f);
     private Vector2 normalSize;
-
 
     private void Awake()
     {
@@ -223,6 +224,7 @@ public class Player : Character {
         if (!OnGround && value == 1 || OnGround && value == 0) {
             base.ThrowKnife(value);
         }
+        ThrowPlayer.Play();
 
     }
 
@@ -306,9 +308,15 @@ public class Player : Character {
             Destroy(other.gameObject);
             CureOfPoison();
         }
-        else if (other.gameObject.tag=="End")
+        else if (other.gameObject.tag=="Endforest")
         {
-            SceneManager.LoadScene("MainMenu");
+            HasWonLevel();
+            Invoke("ChangeCyrilScene2", 5);
+        }
+        else if (other.gameObject.tag == "Endtown")
+        {
+            HasWonLevel();
+            Invoke("BackMainMenu", 5);
         }
     }
 
@@ -332,6 +340,20 @@ public class Player : Character {
         }
     }
 
+    private void ChangeCyrilScene2(){
+        mAnimator.SetBool("win", false);
+        SceneManager.LoadScene("CyrilNantes");
+    }
+    private void BackMainMenu(){
+        mAnimator.SetBool("win", false);
+        SceneManager.LoadScene("MainMenu");
+    }
+    private void HasWonLevel(){
+        mAnimator.SetBool("win", true);
+        immortal = true;
+        BackMusic.Stop();
+        WinLevel.Play();
+    }
 }
 
 

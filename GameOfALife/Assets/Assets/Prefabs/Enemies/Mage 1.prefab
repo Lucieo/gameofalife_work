@@ -43,8 +43,6 @@ GameObject:
   - component: {fileID: 114459625462856134}
   - component: {fileID: 50893653684994920}
   - component: {fileID: 61995540127738112}
-  - component: {fileID: 114898822581772526}
-  - component: {fileID: 114161386482451476}
   - component: {fileID: 114351406954765190}
   m_Layer: 0
   m_Name: Mage 1
@@ -288,18 +286,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   other: {fileID: 0}
---- !u!114 &114161386482451476
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1415818748144652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec5566c224aa505489c0617f2b3a642c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  other: {fileID: 0}
 --- !u!114 &114351406954765190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5566c224aa505489c0617f2b3a642c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  other: {fileID: 61228544511346830}
+  other: {fileID: 0}
 --- !u!114 &114444450079551384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -360,18 +346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player
---- !u!114 &114898822581772526
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1415818748144652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec5566c224aa505489c0617f2b3a642c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  other: {fileID: 0}
 --- !u!212 &212215691182896856
 SpriteRenderer:
   m_ObjectHideFlags: 1
