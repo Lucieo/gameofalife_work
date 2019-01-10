@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4823396271365420}
   - component: {fileID: 212587807019734544}
   - component: {fileID: 58710810850096508}
+  - component: {fileID: 114202998382674266}
   - component: {fileID: 58801975400510348}
   - component: {fileID: 50152654400967974}
-  - component: {fileID: 114202998382674266}
   m_Layer: 0
   m_Name: Herisson
   m_TagString: Pics
@@ -105,7 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ef878d965be4de395228948a8b662c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myCollider: {fileID: 0}
 --- !u!212 &212587807019734544
 SpriteRenderer:
   m_ObjectHideFlags: 1
