@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58269887081405176}
   - component: {fileID: 58773544414111552}
   - component: {fileID: 50564768072929176}
-  - component: {fileID: 114233139911189504}
+  - component: {fileID: 114035488195512430}
   m_Layer: 0
   m_Name: Champignon
   m_TagString: Poison
@@ -94,7 +94,7 @@ CircleCollider2D:
   m_Offset: {x: -0.0000076293945, y: 0.0000019073486}
   serializedVersion: 2
   m_Radius: 2.56
---- !u!114 &114233139911189504
+--- !u!114 &114035488195512430
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
