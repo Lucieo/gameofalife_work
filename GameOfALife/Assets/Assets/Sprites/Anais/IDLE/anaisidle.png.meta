@@ -1,13 +1,11 @@
 fileFormatVersion: 2
-guid: 7fefaf0c0e8b644168a148b093819f5c
+guid: af9a8011fa7184e4bbeee0f7cbeed731
 TextureImporter:
   fileIDToRecycleName:
-    21300000: run_0
-    21300002: run_1
-    21300004: run_2
-    21300006: run_3
-    21300008: run_4
-    21300010: run_5
+    21300000: anaisidle_0
+    21300002: anaisidle_1
+    21300004: anaisidle_2
+    21300006: anaisidle_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -51,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 80
+  spritePixelsToUnits: 82
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,121 +99,81 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run_0
+      name: anaisidle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8
-        width: 179
-        height: 405
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 58
+        y: 12
+        width: 167
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ea8ac1c568764d0cb9b664c34681ffd
+      spriteID: 81035b3f86b1b48bf8dce095307b42bf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_1
+      name: anaisidle_1
       rect:
         serializedVersion: 2
-        x: 295
-        y: 8
-        width: 214
-        height: 376
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 284
+        y: 15
+        width: 166
+        height: 399
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6249a9118a9443ab9b42396150b9784
+      spriteID: 395bb6b3c2be14d9894fd54f1353fcbd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_2
+      name: anaisidle_2
       rect:
         serializedVersion: 2
-        x: 661
-        y: 5
-        width: 229
-        height: 390
+        x: 497
+        y: 7
+        width: 170
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b69dd1a6ed8a4413bb14df0b71408895
+      spriteID: 229fd7cd07b7d48ab998fd33de483ae1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_3
+      name: anaisidle_3
       rect:
         serializedVersion: 2
-        x: 1063
-        y: 4
-        width: 201
-        height: 414
+        x: 698
+        y: 2
+        width: 172
+        height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 769d30e9cfbcf4d8ca291b976721e470
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run_4
-      rect:
-        serializedVersion: 2
-        x: 1418
-        y: 1
-        width: 216
-        height: 420
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e26db57ea6203439b96560a7fcbab106
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run_5
-      rect:
-        serializedVersion: 2
-        x: 1743
-        y: 3
-        width: 196
-        height: 378
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3477997de83a473582d74cd7669ace9
+      spriteID: 723fd02ba2ddb4a69aae9a8ba56c755f
       vertices: []
       indices: 
       edges: []
@@ -223,7 +181,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fdb0240cc7dc448a092c64bf1fd898bc
+    spriteID: 417595113dfa64147bc21b5ec64fcc2e
     vertices: []
     indices: 
     edges: []
