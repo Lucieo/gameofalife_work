@@ -7,12 +7,12 @@ public class MainMenu : MonoBehaviour {
 
 	public void PlayCyril()
     {
-        SceneManager.LoadScene("Foret");
+        SceneManager.LoadScene("CyrilEtudes");
     }
 
     public void PlayAnais()
     {
-
+        SceneManager.LoadScene("AnaisEtudes");
     }
 
     public void QuitGame()

@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Assets/Scenes/MainMenu.unity
     guid: 43b273c9d73dc4e58855f73ff78dce30
   - enabled: 1
-    path: Assets/Assets/Scenes/Foret.unity
+    path: Assets/Assets/Scenes/CyrilForet.unity
     guid: 8f8fa75eb33d90c41a0dd4f340205d22
   - enabled: 1
     path: Assets/Assets/Scenes/CyrilNantes.unity

@@ -308,15 +308,35 @@ public class Player : Character {
             Destroy(other.gameObject);
             CureOfPoison();
         }
-        else if (other.gameObject.tag=="Endforest")
+        else if (other.gameObject.tag == "EndCyrilEtudes")
         {
             HasWonLevel();
-            Invoke("ChangeCyrilScene2", 5);
+            StartCoroutine(ChangeScene("CyrilForet"));
         }
-        else if (other.gameObject.tag == "Endtown")
+        else if (other.gameObject.tag=="EndCyrilForest")
         {
             HasWonLevel();
-            Invoke("BackMainMenu", 5);
+            StartCoroutine(ChangeScene("CyrilNantes"));
+        }
+        else if (other.gameObject.tag == "EndCyrilTown")
+        {
+            HasWonLevel();
+            StartCoroutine(ChangeScene("MainMenu"));
+        }
+        else if (other.gameObject.tag == "EndAnaisPoudlard")
+        {
+            HasWonLevel();
+            StartCoroutine(ChangeScene("AnaisHopital"));
+        }
+        else if (other.gameObject.tag == "EndAnaisHopital")
+        {
+            HasWonLevel();
+            StartCoroutine(ChangeScene("AnaisNantes"));
+        }
+        else if (other.gameObject.tag == "EndAnaisTown")
+        {
+            HasWonLevel();
+            StartCoroutine(ChangeScene("MainMenu"));
         }
     }
 
@@ -340,13 +360,14 @@ public class Player : Character {
         }
     }
 
-    private void ChangeCyrilScene2(){
+    private IEnumerator ChangeScene(string LevelName)
+    {
+        yield return new WaitForSeconds(5f);
+        //Start fading
+        float fadeTime = GameObject.Find("FadeScreen").GetComponent<Fading>().BeginFade(1);
+        yield return new WaitForSeconds(fadeTime);
         mAnimator.SetBool("win", false);
-        SceneManager.LoadScene("CyrilNantes");
-    }
-    private void BackMainMenu(){
-        mAnimator.SetBool("win", false);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(LevelName);
     }
     private void HasWonLevel(){
         mAnimator.SetBool("win", true);
