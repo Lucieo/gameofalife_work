@@ -4,7 +4,8 @@
 AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: AnaisThrow
   serializedVersion: 6
   m_Legacy: 0
@@ -19,21 +20,23 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: b66e46277054d45278e152bb7bf8de37, type: 3}
+      value: {fileID: 21300000, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 3624a416e5ebc47b1a799cba14958145, type: 3}
+      value: {fileID: 21300002, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: a06d9957fdaee4bb98bc5e74e1f050b8, type: 3}
+      value: {fileID: 21300004, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: d59548f2318d14861ab16e79c3d33549, type: 3}
+      value: {fileID: 21300006, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: d3caefbd607ca433cb88725a4d15c2e7, type: 3}
+      value: {fileID: 21300008, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
     - time: 0.41666666
-      value: {fileID: 21300000, guid: 0191df9bd90474cf296cf229ba8af897, type: 3}
+      value: {fileID: 21300010, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
     - time: 0.5
-      value: {fileID: 21300000, guid: c5bb75656aa994d7b929b95664e20c77, type: 3}
+      value: {fileID: 21300012, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
     - time: 0.5833333
-      value: {fileID: 21300000, guid: be4d79fd71f8f4c439ee7bf0c01a292d, type: 3}
+      value: {fileID: 21300014, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
+    - time: 0.6666667
+      value: {fileID: 21300016, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -53,20 +56,21 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: b66e46277054d45278e152bb7bf8de37, type: 3}
-    - {fileID: 21300000, guid: 3624a416e5ebc47b1a799cba14958145, type: 3}
-    - {fileID: 21300000, guid: a06d9957fdaee4bb98bc5e74e1f050b8, type: 3}
-    - {fileID: 21300000, guid: d59548f2318d14861ab16e79c3d33549, type: 3}
-    - {fileID: 21300000, guid: d3caefbd607ca433cb88725a4d15c2e7, type: 3}
-    - {fileID: 21300000, guid: 0191df9bd90474cf296cf229ba8af897, type: 3}
-    - {fileID: 21300000, guid: c5bb75656aa994d7b929b95664e20c77, type: 3}
-    - {fileID: 21300000, guid: be4d79fd71f8f4c439ee7bf0c01a292d, type: 3}
+    - {fileID: 21300000, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
+    - {fileID: 21300002, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
+    - {fileID: 21300004, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
+    - {fileID: 21300006, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
+    - {fileID: 21300008, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
+    - {fileID: 21300010, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
+    - {fileID: 21300012, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
+    - {fileID: 21300014, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
+    - {fileID: 21300016, guid: 5e72741feb3c146ec9660dfb36792b82, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666666
+    m_StopTime: 0.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -85,12 +89,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_GenerateMotionCurves: 0
   m_Events:
   - time: 0.41666666
     functionName: ThrowKnife
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 1
+    intParameter: 0
     messageOptions: 0

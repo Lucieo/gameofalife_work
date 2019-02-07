@@ -2,10 +2,10 @@ fileFormatVersion: 2
 guid: af9a8011fa7184e4bbeee0f7cbeed731
 TextureImporter:
   fileIDToRecycleName:
-    21300000: anaisidle_0
-    21300002: anaisidle_1
-    21300004: anaisidle_2
-    21300006: anaisidle_3
+    21300000: AnaisIdle_0
+    21300002: AnaisIdle_1
+    21300004: AnaisIdle_2
+    21300006: AnaisIdle_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 82
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,96 +84,85 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: anaisidle_0
+      name: AnaisIdle_0
       rect:
         serializedVersion: 2
-        x: 58
-        y: 12
-        width: 167
-        height: 400
-      alignment: 9
-      pivot: {x: 0.5, y: 0.48}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 81035b3f86b1b48bf8dce095307b42bf
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: anaisidle_1
-      rect:
-        serializedVersion: 2
-        x: 284
-        y: 15
+        x: 0
+        y: 1
         width: 166
         height: 399
       alignment: 9
-      pivot: {x: 0.5, y: 0.47}
+      pivot: {x: 0.5, y: 0.455}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 395bb6b3c2be14d9894fd54f1353fcbd
+      spriteID: 37b33f5ebc46040b396b18fcb862b6d0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: anaisidle_2
+      name: AnaisIdle_1
       rect:
         serializedVersion: 2
-        x: 497
-        y: 7
-        width: 170
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 225
+        y: 1
+        width: 167
+        height: 393
+      alignment: 9
+      pivot: {x: 0.5, y: 0.462}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 229fd7cd07b7d48ab998fd33de483ae1
+      spriteID: 3b6e082dfc204415890caa49260c703e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: anaisidle_3
+      name: AnaisIdle_2
       rect:
         serializedVersion: 2
-        x: 698
-        y: 2
+        x: 438
+        y: 1
+        width: 171
+        height: 395
+      alignment: 9
+      pivot: {x: 0.49, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24805dd29596242beaa05edccf588639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AnaisIdle_3
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 1
         width: 172
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 395
+      alignment: 9
+      pivot: {x: 0.49, y: 0.46}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 723fd02ba2ddb4a69aae9a8ba56c755f
+      spriteID: 776ebe6cf9aeb4caea3f0a1e0694bdcc
       vertices: []
       indices: 
       edges: []
@@ -181,7 +170,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 417595113dfa64147bc21b5ec64fcc2e
+    spriteID: 52dcad47dee89400dbfd1db3bae3212e
     vertices: []
     indices: 
     edges: []
