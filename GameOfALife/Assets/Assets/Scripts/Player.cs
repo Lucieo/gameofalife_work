@@ -61,6 +61,7 @@ public class Player : Character {
     [SerializeField] AudioSource CollectCoin;
     [SerializeField] AudioSource ThrowPlayer;
     [SerializeField] AudioSource WinLevel;
+    [SerializeField] AudioSource LifePotion;
 
     private Vector2 crouchSize = new Vector2(1.63f, 1.8f);
     private Vector2 crouchOffset = new Vector2(0f, -1.3f);
@@ -304,6 +305,7 @@ public class Player : Character {
         }
         else if (other.gameObject.tag == "LifePotion")
         {
+            LifePotion.Play();
             healthStat.CurrentValue += 10;
             Destroy(other.gameObject);
             CureOfPoison();
@@ -367,6 +369,7 @@ public class Player : Character {
         float fadeTime = GameObject.Find("FadeScreen").GetComponent<Fading>().BeginFade(1);
         yield return new WaitForSeconds(fadeTime);
         mAnimator.SetBool("win", false);
+        immortal = false;
         SceneManager.LoadScene(LevelName);
     }
     private void HasWonLevel(){

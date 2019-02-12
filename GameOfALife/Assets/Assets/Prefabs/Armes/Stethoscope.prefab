@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2671846646273478433}
   - component: {fileID: 796552125271523066}
   - component: {fileID: 37690051671550928}
+  - component: {fileID: 4727891264758663930}
   m_Layer: 0
   m_Name: Stethoscope
   m_TagString: Knife
@@ -142,3 +143,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4703307, y: 2.74468}
   m_EdgeRadius: 0
+--- !u!114 &4727891264758663930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5156474430196891815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a82e35d5f57a4a309dbcf52570291db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
