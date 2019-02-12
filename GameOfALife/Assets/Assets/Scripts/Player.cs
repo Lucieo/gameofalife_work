@@ -369,6 +369,7 @@ public class Player : Character {
         float fadeTime = GameObject.Find("FadeScreen").GetComponent<Fading>().BeginFade(1);
         yield return new WaitForSeconds(fadeTime);
         mAnimator.SetBool("win", false);
+        immortal = false;
         SceneManager.LoadScene(LevelName);
     }
     private void HasWonLevel(){
