@@ -248,6 +248,7 @@ public class Player : Character {
                 mAnimator.SetTrigger("death");
                 BackMusic.Stop();
                 DeadSound.Play();
+                immortal = true;
             }
         }
     }
@@ -277,6 +278,7 @@ public class Player : Character {
         transform.position = startPos;
         BackMusic.Play();
         JumpSound.Play();
+        immortal = false;
     }
 
     public override void OnTriggerEnter2D(Collider2D other)
