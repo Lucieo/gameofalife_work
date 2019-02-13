@@ -29,6 +29,7 @@ TagManager:
   - EndCyrilTown
   - HighBaby
   - DrunkBaby
+  - Distributeur
   layers:
   - Default
   - TransparentFX
