@@ -529,6 +529,12 @@ PrefabInstance:
       propertyPath: healthStat.currentValue
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 114295951466172036, guid: 94b0ea78883694ab292952d43b6cc1e3,
+        type: 3}
+      propertyPath: knifePrefab
+      value: 
+      objectReference: {fileID: 1434881872051220, guid: 6d13cefbd85b5405a9a761e45a243346,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b0ea78883694ab292952d43b6cc1e3, type: 3}
 --- !u!4 &84286489 stripped
@@ -3857,7 +3863,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680923318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.322403, y: 2.0919142, z: 0}
+  m_LocalPosition: {x: -9.697205, y: 2.0919142, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1877181153}
@@ -4849,7 +4855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990489104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.1, y: 1.35, z: 0.62}
+  m_LocalPosition: {x: -34.1, y: 1.53, z: 0.62}
   m_LocalScale: {x: 0.91769016, y: 0.8190751, z: 0.20375003}
   m_Children: []
   m_Father: {fileID: 1628404408}
@@ -8734,7 +8740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921133814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.031213, y: 2.0919144, z: 0}
+  m_LocalPosition: {x: -13.034681, y: 2.0919144, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1316244747}
