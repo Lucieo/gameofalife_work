@@ -67,6 +67,9 @@ public class Player : Character {
     private Vector2 crouchOffset = new Vector2(0f, -1.3f);
     private Vector2 normalSize;
 
+    //Gestion du mode high
+    private bool isHigh = false;
+
     private void Awake()
     {
         healthStat.Initialize();
@@ -239,7 +242,6 @@ public class Player : Character {
                 immortal = true;
                 StartCoroutine(IndicateImmortal());
                 yield return new WaitForSeconds(immortalDuration);
-
                 immortal = false;
 
             }
@@ -312,6 +314,17 @@ public class Player : Character {
             Destroy(other.gameObject);
             CureOfPoison();
         }
+        else if (other.gameObject.tag=="HighBaby"){
+            GameManager.Instance.CollectedCoins += 50;
+            Destroy(other.gameObject);
+            StartCoroutine(GetHigh());
+        }
+        else if (other.gameObject.tag == "DrunkBaby")
+        {
+            GameManager.Instance.CollectedCoins += 50;
+            Destroy(other.gameObject);
+            StartCoroutine(GetDrunk());
+        }
         else if (other.gameObject.tag == "EndCyrilEtudes")
         {
             HasWonLevel();
@@ -379,6 +392,38 @@ public class Player : Character {
         immortal = true;
         BackMusic.Stop();
         WinLevel.Play();
+    }
+
+
+    private IEnumerator HighMan()
+    {
+        while (isHigh)
+        {
+            mSpriteRenderer.material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+            yield return new WaitForSeconds(0.4f);
+        }
+    }
+
+    private IEnumerator GetHigh()
+    {
+        isHigh = true;
+        StartCoroutine(HighMan());
+        movementSpeed = movementSpeed/2;
+        yield return new WaitForSeconds(immortalDuration);
+        isHigh = false;
+        mSpriteRenderer.material.color = originalColor;
+        movementSpeed = 2 * movementSpeed;
+    }
+
+    private IEnumerator GetDrunk()
+    {
+        Quaternion originalRot = transform.rotation;
+        MyRigidbody.constraints = RigidbodyConstraints2D.None;
+        movementSpeed = movementSpeed / 2;
+        yield return new WaitForSeconds(immortalDuration);
+        transform.rotation = originalRot;
+        MyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        movementSpeed = 2 * movementSpeed;
     }
 }
 
