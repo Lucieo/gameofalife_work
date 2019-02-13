@@ -67,6 +67,8 @@ public class Player : Character {
     private Vector2 crouchOffset = new Vector2(0f, -1.3f);
     private Vector2 normalSize;
 
+    private bool hasWon=false;
+
     //Gestion du mode high
     private bool isHigh = false;
 
@@ -138,7 +140,7 @@ public class Player : Character {
         }
 
         // If we aren't attacking, or sliding, and are either on the ground or in the air, we move.
-        if (!Attack && (OnGround || airControl)) {
+        if (!Attack && (OnGround || airControl) &&!hasWon) {
             if(isPoisoned)
             {
                 MyRigidbody.velocity = new Vector2(hInput * movementSpeed * -1, MyRigidbody.velocity.y);
@@ -159,28 +161,34 @@ public class Player : Character {
 
     // Checks inputs
     private void HandleInput() {
-        if (Input.GetButtonDown("Fire1")) {
-            mAnimator.SetTrigger("attack");
-        }
+        //Block all movement when level is won
+        if(!hasWon){
+            if (Input.GetButtonDown("Fire1") && !hasWon)
+            {
+                mAnimator.SetTrigger("attack");
+            }
 
-        if (Input.GetButtonDown("Jump")) {
-            mAnimator.SetTrigger("jump");
-            JumpSound.Play();
-        }
-        if (Input.GetButtonDown("Fire2")) {
-            mAnimator.SetTrigger("throw");
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            mAnimator.SetBool("crouch", true);
-            GetComponent<BoxCollider2D>().size=crouchSize;
-            GetComponent<BoxCollider2D>().offset = crouchOffset;
-        }
-        else
-        {
-            mAnimator.SetBool("crouch", false);
-            GetComponent<BoxCollider2D>().size = normalSize;
-            GetComponent<BoxCollider2D>().offset = new Vector2(0f,0f);
+            if (Input.GetButtonDown("Jump"))
+            {
+                mAnimator.SetTrigger("jump");
+                JumpSound.Play();
+            }
+            if (Input.GetButtonDown("Fire2"))
+            {
+                mAnimator.SetTrigger("throw");
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                mAnimator.SetBool("crouch", true);
+                GetComponent<BoxCollider2D>().size = crouchSize;
+                GetComponent<BoxCollider2D>().offset = crouchOffset;
+            }
+            else
+            {
+                mAnimator.SetBool("crouch", false);
+                GetComponent<BoxCollider2D>().size = normalSize;
+                GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0f);
+            }
         }
     }
 
@@ -385,11 +393,19 @@ public class Player : Character {
         yield return new WaitForSeconds(fadeTime);
         mAnimator.SetBool("win", false);
         immortal = false;
+        hasWon = false;
         SceneManager.LoadScene(LevelName);
     }
     private void HasWonLevel(){
+        //set character in animation win
         mAnimator.SetBool("win", true);
+        //Block all movements
+        hasWon = true;
+        MyRigidbody.velocity= Vector3.zero;;
+        //Be immortal
         immortal = true;
+        StartCoroutine(IndicateImmortal());
+        //Play Music
         BackMusic.Stop();
         WinLevel.Play();
     }
