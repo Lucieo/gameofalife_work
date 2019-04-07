@@ -22,8 +22,26 @@ TagManager:
   - EnemyBullet
   - Floor
   - Wall
-  - Endforest
-  - Endtown
+  - EndAnaisPoudlard
+  - EndAnaisHopital
+  - EndCyrilEtudes
+  - EndCyrilForest
+  - EndCyrilTown
+  - Camera
+  - DangerousLeg
+  - Hidden3DSwitch
+  - Pipes
+  - Bath
+  - BathCollider
+  - Splash
+  - EndNoamTown
+  - PipeStart
+  - PipeEnd
+  - GravityUp
+  - RotatingLeg
+  - Rapetisser
+  - Grow
+  - Death
   layers:
   - Default
   - TransparentFX

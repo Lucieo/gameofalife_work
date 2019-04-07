@@ -12,9 +12,24 @@ EditorBuildSettings:
     path: Assets/Assets/Scenes/MainMenu.unity
     guid: 43b273c9d73dc4e58855f73ff78dce30
   - enabled: 1
-    path: Assets/Assets/Scenes/Foret.unity
+    path: Assets/Assets/Scenes/CyrilForet.unity
     guid: 8f8fa75eb33d90c41a0dd4f340205d22
   - enabled: 1
     path: Assets/Assets/Scenes/CyrilNantes.unity
     guid: 5bcdab793e4bd46f3bb7dfe7e59d0e97
+  - enabled: 1
+    path: Assets/Assets/Scenes/AnaisEtudes.unity
+    guid: 5a5feeef10cfe47f6860350b6d176f67
+  - enabled: 1
+    path: Assets/Assets/Scenes/AnaisHopital.unity
+    guid: e23ec9fc6226c4796950a086240cea65
+  - enabled: 1
+    path: Assets/Assets/Scenes/CyrilEtudes.unity
+    guid: 8ea0221877591427a990e00735260575
+  - enabled: 1
+    path: Assets/Assets/Scenes/AnaisNantes.unity
+    guid: cfd195b489e2441d0a16718e13875e02
+  - enabled: 1
+    path: Assets/Assets/Scenes/Noam.unity
+    guid: d08d8d6590d58e042bc67b31e52cc1c3
   m_configObjects: {}

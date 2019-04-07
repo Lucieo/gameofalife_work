@@ -3,6 +3,11 @@ using System.Collections;
 
 public class Enemy : Character {
 
+    enum DropItem
+    {
+        Coin = 0,
+        Rapetisser = 1,
+    }
     private IEnemyState currentState;
     public GameObject Target { get; set; }
 
@@ -19,7 +24,9 @@ public class Enemy : Character {
     [SerializeField]private Transform leftEdge;
     [SerializeField]private Transform rightEdge;
 
-    private bool dropItem = true;
+    private bool shouldDropItem = true;
+    [SerializeField]
+    private DropItem dropItem;
 
     public bool InMeleeRange {
         get {
@@ -125,17 +132,21 @@ public class Enemy : Character {
     }
 
 
-    public override IEnumerator TakeDamage() {
-        health -= 10;
+    public override IEnumerator TakeDamage(int force = 10) {
+        health -= force;
         if (!IsDead) {
             mAnimator.SetTrigger("damage");
         }
         else {
-            if(dropItem)
+            if(shouldDropItem)
             {
-                GameObject coin = (GameObject)Instantiate(GameManager.Instance.CoinPrefab, new Vector3(transform.position.x, transform.position.y + 2), Quaternion.identity);
-                Physics2D.IgnoreCollision(coin.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-                dropItem = false;
+                GameObject item = (GameObject) Instantiate(
+                    dropItem == DropItem.Rapetisser ? GameManager.Instance.RapetisserPrefab : GameManager.Instance.CoinPrefab, 
+                    new Vector3(transform.position.x, transform.position.y + 2), 
+                    Quaternion.identity
+                );
+                Physics2D.IgnoreCollision(item.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+                shouldDropItem = false;
             }
             mAnimator.SetTrigger("death");
             GetComponent<BoxCollider2D>().enabled = false;
@@ -150,7 +161,7 @@ public class Enemy : Character {
         }
     }
 
-    public override void Death() {
+    public override void AfterDeath() {
         Destroy(gameObject);
         //mAnimator.ResetTrigger("death");
         //mAnimator.SetTrigger("idle");
