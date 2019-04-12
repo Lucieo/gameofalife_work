@@ -56,16 +56,25 @@ public class Player : Character {
     [SerializeField] AudioSource JumpSound;
     [SerializeField] AudioSource CollectibleSound;
     [SerializeField] AudioSource DeadSound;
-    [SerializeField] AudioSource Throw;
+    [SerializeField] AudioSource ThrowEnnemy;
     [SerializeField] AudioSource Hurt;
     [SerializeField] AudioSource CollectCoin;
     [SerializeField] AudioSource ThrowPlayer;
     [SerializeField] AudioSource WinLevel;
     [SerializeField] AudioSource LifePotion;
+    [SerializeField] AudioSource PunchSound;
+    [SerializeField] AudioSource HealSound;
+    [SerializeField] AudioSource DrunkSound;
+    [SerializeField] AudioSource PoisonSound;
 
     private Vector2 crouchSize = new Vector2(1.63f, 1.8f);
     private Vector2 crouchOffset = new Vector2(0f, -1.3f);
     private Vector2 normalSize;
+
+    private bool hasWon=false;
+
+    //Gestion du mode high
+    private bool isHigh = false;
 
     private void Awake()
     {
@@ -135,7 +144,7 @@ public class Player : Character {
         }
 
         // If we aren't attacking, or sliding, and are either on the ground or in the air, we move.
-        if (!Attack && (OnGround || airControl)) {
+        if (!Attack && (OnGround || airControl) &&!hasWon) {
             if(isPoisoned)
             {
                 MyRigidbody.velocity = new Vector2(hInput * movementSpeed * -1, MyRigidbody.velocity.y);
@@ -156,28 +165,35 @@ public class Player : Character {
 
     // Checks inputs
     private void HandleInput() {
-        if (Input.GetButtonDown("Fire1")) {
-            mAnimator.SetTrigger("attack");
-        }
+        //Block all movement when level is won
+        if(!hasWon){
+            if (Input.GetButtonDown("Fire1") && !hasWon)
+            {
+                mAnimator.SetTrigger("attack");
+                PunchSound.Play();
+            }
 
-        if (Input.GetButtonDown("Jump")) {
-            mAnimator.SetTrigger("jump");
-            JumpSound.Play();
-        }
-        if (Input.GetButtonDown("Fire2")) {
-            mAnimator.SetTrigger("throw");
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            mAnimator.SetBool("crouch", true);
-            GetComponent<BoxCollider2D>().size=crouchSize;
-            GetComponent<BoxCollider2D>().offset = crouchOffset;
-        }
-        else
-        {
-            mAnimator.SetBool("crouch", false);
-            GetComponent<BoxCollider2D>().size = normalSize;
-            GetComponent<BoxCollider2D>().offset = new Vector2(0f,0f);
+            if (Input.GetButtonDown("Jump"))
+            {
+                mAnimator.SetTrigger("jump");
+                JumpSound.Play();
+            }
+            if (Input.GetButtonDown("Fire2"))
+            {
+                mAnimator.SetTrigger("throw");
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                mAnimator.SetBool("crouch", true);
+                GetComponent<BoxCollider2D>().size = crouchSize;
+                GetComponent<BoxCollider2D>().offset = crouchOffset;
+            }
+            else
+            {
+                mAnimator.SetBool("crouch", false);
+                GetComponent<BoxCollider2D>().size = normalSize;
+                GetComponent<BoxCollider2D>().offset = new Vector2(0f, 0f);
+            }
         }
     }
 
@@ -239,7 +255,6 @@ public class Player : Character {
                 immortal = true;
                 StartCoroutine(IndicateImmortal());
                 yield return new WaitForSeconds(immortalDuration);
-
                 immortal = false;
 
             }
@@ -298,6 +313,7 @@ public class Player : Character {
         }
         else if (other.gameObject.tag == "Poison")
         {
+            PoisonSound.Play();
             healthStat.CurrentValue -= 10;
             Destroy(other.gameObject);
             isPoisoned = true;
@@ -311,6 +327,20 @@ public class Player : Character {
             healthStat.CurrentValue += 10;
             Destroy(other.gameObject);
             CureOfPoison();
+        }
+        else if (other.gameObject.tag=="HighBaby"){
+            GameManager.Instance.CollectedCoins += 50;
+            CollectibleSound.Play();
+            Destroy(other.gameObject);
+            StartCoroutine(GetHigh());
+        }
+        else if (other.gameObject.tag == "DrunkBaby")
+        {
+            DrunkSound.Play();
+            GameManager.Instance.CollectedCoins += 50;
+            CollectibleSound.Play();
+            Destroy(other.gameObject);
+            StartCoroutine(GetDrunk());
         }
         else if (other.gameObject.tag == "EndCyrilEtudes")
         {
@@ -372,13 +402,53 @@ public class Player : Character {
         yield return new WaitForSeconds(fadeTime);
         mAnimator.SetBool("win", false);
         immortal = false;
+        hasWon = false;
         SceneManager.LoadScene(LevelName);
     }
     private void HasWonLevel(){
+        //set character in animation win
         mAnimator.SetBool("win", true);
+        //Block all movements
+        hasWon = true;
+        MyRigidbody.velocity= Vector3.zero;;
+        //Be immortal
         immortal = true;
+        StartCoroutine(IndicateImmortal());
+        //Play Music
         BackMusic.Stop();
         WinLevel.Play();
+    }
+
+
+    private IEnumerator HighMan()
+    {
+        while (isHigh)
+        {
+            mSpriteRenderer.material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+            yield return new WaitForSeconds(0.4f);
+        }
+    }
+
+    private IEnumerator GetHigh()
+    {
+        isHigh = true;
+        StartCoroutine(HighMan());
+        movementSpeed = movementSpeed/2;
+        yield return new WaitForSeconds(immortalDuration);
+        isHigh = false;
+        mSpriteRenderer.material.color = originalColor;
+        movementSpeed = 2 * movementSpeed;
+    }
+
+    private IEnumerator GetDrunk()
+    {
+        Quaternion originalRot = transform.rotation;
+        MyRigidbody.constraints = RigidbodyConstraints2D.None;
+        movementSpeed = movementSpeed / 2;
+        yield return new WaitForSeconds(immortalDuration);
+        transform.rotation = originalRot;
+        MyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        movementSpeed = 2 * movementSpeed;
     }
 }
 

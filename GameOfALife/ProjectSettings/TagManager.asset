@@ -27,6 +27,9 @@ TagManager:
   - EndCyrilEtudes
   - EndCyrilForest
   - EndCyrilTown
+  - HighBaby
+  - DrunkBaby
+  - Distributeur
   layers:
   - Default
   - TransparentFX
