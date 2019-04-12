@@ -56,12 +56,16 @@ public class Player : Character {
     [SerializeField] AudioSource JumpSound;
     [SerializeField] AudioSource CollectibleSound;
     [SerializeField] AudioSource DeadSound;
-    [SerializeField] AudioSource Throw;
+    [SerializeField] AudioSource ThrowEnnemy;
     [SerializeField] AudioSource Hurt;
     [SerializeField] AudioSource CollectCoin;
     [SerializeField] AudioSource ThrowPlayer;
     [SerializeField] AudioSource WinLevel;
     [SerializeField] AudioSource LifePotion;
+    [SerializeField] AudioSource PunchSound;
+    [SerializeField] AudioSource HealSound;
+    [SerializeField] AudioSource DrunkSound;
+    [SerializeField] AudioSource PoisonSound;
 
     private Vector2 crouchSize = new Vector2(1.63f, 1.8f);
     private Vector2 crouchOffset = new Vector2(0f, -1.3f);
@@ -166,6 +170,7 @@ public class Player : Character {
             if (Input.GetButtonDown("Fire1") && !hasWon)
             {
                 mAnimator.SetTrigger("attack");
+                PunchSound.Play();
             }
 
             if (Input.GetButtonDown("Jump"))
@@ -308,6 +313,7 @@ public class Player : Character {
         }
         else if (other.gameObject.tag == "Poison")
         {
+            PoisonSound.Play();
             healthStat.CurrentValue -= 10;
             Destroy(other.gameObject);
             isPoisoned = true;
@@ -324,12 +330,15 @@ public class Player : Character {
         }
         else if (other.gameObject.tag=="HighBaby"){
             GameManager.Instance.CollectedCoins += 50;
+            CollectibleSound.Play();
             Destroy(other.gameObject);
             StartCoroutine(GetHigh());
         }
         else if (other.gameObject.tag == "DrunkBaby")
         {
+            DrunkSound.Play();
             GameManager.Instance.CollectedCoins += 50;
+            CollectibleSound.Play();
             Destroy(other.gameObject);
             StartCoroutine(GetDrunk());
         }

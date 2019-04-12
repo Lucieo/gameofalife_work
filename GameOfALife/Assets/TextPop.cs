@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextPop : MonoBehaviour {
 
@@ -19,7 +20,9 @@ public class TextPop : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag=="Player"){
-            PersoDialog.SetActive(true);
+            PersoDialog.transform.Find("BlurryBack").GetComponent<Image>().enabled=true;
+            PersoDialog.transform.Find("Image").GetComponent<Image>().enabled = true;
+            PersoDialog.transform.Find("Text").GetComponent<Text>().enabled = true;
         }
     }
 
@@ -27,7 +30,9 @@ public class TextPop : MonoBehaviour {
     {
         if (other.tag=="Player")
         {
-            PersoDialog.SetActive(false);
+            PersoDialog.transform.Find("BlurryBack").GetComponent<Image>().enabled = false;
+            PersoDialog.transform.Find("Image").GetComponent<Image>().enabled = false;
+            PersoDialog.transform.Find("Text").GetComponent<Text>().enabled = false;
         }
     }
 }
