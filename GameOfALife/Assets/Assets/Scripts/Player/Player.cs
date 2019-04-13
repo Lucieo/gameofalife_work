@@ -161,6 +161,7 @@ public class Player : Character
                 float hInput = Input.GetAxis("Horizontal");
 
                 OnGround = IsGrounded();
+                // Debug.Log("OnGround update:" + OnGround);
 
                 HandleMovement(hInput, 0);
                 Flip(hInput);
@@ -280,18 +281,15 @@ public class Player : Character
 
     private bool IsGrounded()
     {
-        if (MyRigidbody.velocity.y <= 0)
+        foreach (Transform point in groundPoints)
         {
-            foreach (Transform point in groundPoints)
-            {
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(point.position, groundRadius, whatIsGround);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(point.position, groundRadius, whatIsGround);
 
-                for (int i = 0; i < colliders.Length; i++)
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].gameObject != gameObject)
                 {
-                    if (colliders[i].gameObject != gameObject)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
         }
@@ -398,7 +396,7 @@ public class Player : Character
     public override void OnTriggerEnter2D(Collider2D other)
     {
         string tag = other.gameObject.tag;
-        Debug.Log("Player OnTriggerEnter2D with: " + tag);
+        // Debug.Log("Player OnTriggerEnter2D with: " + tag);
         base.OnTriggerEnter2D(other);
         if (tag == "MediumCoin")
         {
@@ -414,7 +412,7 @@ public class Player : Character
         }
         else if (tag == "Poison")
         {
-            Debug.Log("Poison");
+            // Debug.Log("Poison");
             PoisonSound.Play();
             healthStat.CurrentValue -= 10;
             Destroy(other.gameObject);
