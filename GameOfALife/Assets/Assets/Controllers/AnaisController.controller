@@ -1005,7 +1005,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c598b156e4443bc44a9f533cc2744608, type: 2}
+  m_Motion: {fileID: 7400000, guid: 51f193a27b7b64818a64a2a968247e3e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1036,7 +1036,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8a01062a9d47ae04da6bbbbb4b5703a2, type: 2}
+  m_Motion: {fileID: 7400000, guid: 25dcc2c7a404d4e6d9d6b2cbdbf8c0e4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1067,7 +1067,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 30a5d47ef184df94d886b8b3b0064193, type: 2}
+  m_Motion: {fileID: 7400000, guid: a6fa0c1cb268c48c991803d83c05c658, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1185,7 +1185,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9e7e44eca03c99145b38f6402dd11e61, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5a721366eb2a041728f5d155f4e29432, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1240,7 +1240,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e2cb6af2bee2b1c4db2ebd7435073e84, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8ad1d3d2d8a514ee18d7ace4dffa27a7, type: 2}
   m_Tag: attack
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1418,7 +1418,7 @@ AnimatorStateMachine:
     m_Position: {x: 204, y: -12, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102098286183081732}
-    m_Position: {x: 590.6054, y: 216.3942, z: 0}
+    m_Position: {x: 588, y: 216, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102613026066443410}
     m_Position: {x: 1020, y: 0, z: 0}

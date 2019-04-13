@@ -42,6 +42,9 @@ TagManager:
   - Rapetisser
   - Grow
   - Death
+  - HighBaby
+  - DrunkBaby
+  - Distributeur
   layers:
   - Default
   - TransparentFX
