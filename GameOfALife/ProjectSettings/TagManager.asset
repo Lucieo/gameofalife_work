@@ -45,6 +45,7 @@ TagManager:
   - HighBaby
   - DrunkBaby
   - Distributeur
+  - Resume
   layers:
   - Default
   - TransparentFX
