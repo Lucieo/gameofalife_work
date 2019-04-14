@@ -25,7 +25,7 @@ public class AttackBehavior : StateMachineBehaviour {
         if (stateInfo.IsTag("attack")) {
             animator.GetComponent<Character>().DisableSword();
         }
-        animator.ResetTrigger("attack");
+        //animator.ResetTrigger("attack");
         animator.ResetTrigger("throw");
     }
 

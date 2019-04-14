@@ -15,6 +15,11 @@ public class MainMenu : MonoBehaviour {
         SceneManager.LoadScene("AnaisEtudes");
     }
 
+    public void PlayNoam()
+    {
+        SceneManager.LoadScene("Noam");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

@@ -45,7 +45,7 @@ public class LegsScript : Character
     }
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         mainCamera = Camera.main;
         leg = GameObject.FindGameObjectWithTag("DangerousLeg");

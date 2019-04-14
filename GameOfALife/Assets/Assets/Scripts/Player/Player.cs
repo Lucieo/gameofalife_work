@@ -74,6 +74,8 @@ public class Player : Character
     [SerializeField] AudioSource Water;
 
     public bool isBathInScene = false;
+    public bool isNoam = false;
+
     private SpriteRenderer bath;
     private Animator[] bathAnimators;
     private List<GameObject> garbage;
@@ -121,10 +123,10 @@ public class Player : Character
     {
         if (!TakingDamage && !IsDead)
         {
-            if (transform.position.y <= -14f)
+            /*if (transform.position.y <= -14f)
             {
-                AfterDeath();
-            }
+                Death();
+            }*/
             HandleInput();
         }
 
@@ -155,7 +157,7 @@ public class Player : Character
         Rapetisser();
         Grow();
 
-        if (!mAnimator.GetBool("pipe")) {
+        if (!isBathInScene || (isBathInScene && !mAnimator.GetBool("pipe"))) {
             if (!TakingDamage && !IsDead)
             {
                 float hInput = Input.GetAxis("Horizontal");
@@ -236,6 +238,7 @@ public class Player : Character
         {
             if (Input.GetButtonDown("Fire1") && !hasWon)
             {
+                mAnimator.ResetTrigger("attack");
                 mAnimator.SetTrigger("attack");
                 PunchSound.Play();
             }
@@ -249,7 +252,7 @@ public class Player : Character
             {
                 mAnimator.SetTrigger("throw");
             }
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.DownArrow) && !isNoam)
             {
                 mAnimator.SetBool("crouch", true);
                 GetComponent<BoxCollider2D>().size = crouchSize;
@@ -385,12 +388,19 @@ public class Player : Character
     public override void AfterDeath()
     {
         MyRigidbody.velocity = Vector2.zero;
+        this.transform.eulerAngles = new Vector3(0, 0, 0);
         mAnimator.SetTrigger("idle");
         healthStat.CurrentValue = healthStat.MaxValue;
         transform.position = startPos;
         BackMusic.Play();
         JumpSound.Play();
         immortal = false;
+        SetToVisible();
+        NormalSize();
+        foreach (GameObject gameObject in garbage)
+        {
+            gameObject.SetActive(true);
+        }
     }
 
     public override void OnTriggerEnter2D(Collider2D other)
