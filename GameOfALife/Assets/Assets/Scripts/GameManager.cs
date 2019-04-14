@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour {
     private static GameManager instance;
 
     [SerializeField] private Text coinTxt;
-    [SerializeField]private GameObject coinPrefab;
+    [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private GameObject rapetisserPrefab;
     private int collectedCoins;
 
     public static GameManager Instance
@@ -29,6 +30,15 @@ public class GameManager : MonoBehaviour {
         get
         {
             return coinPrefab;
+        }
+
+    }
+
+    public GameObject RapetisserPrefab
+    {
+        get
+        {
+            return rapetisserPrefab;
         }
 
     }
