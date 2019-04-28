@@ -156,7 +156,7 @@ public class Player : Character
     {
         Rapetisser();
         Grow();
-
+        Debug.Log(IsGrounded());
         if (!isBathInScene || (isBathInScene && !mAnimator.GetBool("pipe"))) {
             if (!TakingDamage && !IsDead)
             {
@@ -234,7 +234,7 @@ public class Player : Character
     private void HandleInput()
     {
         //Block all movement when level is won
-        if (!hasWon)
+        if (!hasWon && !IsDead)
         {
             if (Input.GetButtonDown("Fire1") && !hasWon)
             {
@@ -372,7 +372,7 @@ public class Player : Character
         }
     }
 
-    private void Death(bool disappear = false)
+    public void Death(bool disappear = false)
     {
         mAnimator.SetLayerWeight(1, 0);
         mAnimator.SetTrigger("death");
@@ -529,6 +529,11 @@ public class Player : Character
             MyRigidbody.gravityScale = 0;
         }
         else if (tag == "EndNoamTown")
+        {
+            HasWonLevel();
+            StartCoroutine(ChangeScene("NoamLit"));
+        }
+        else if (tag == "EndNoamLit")
         {
             HasWonLevel();
             StartCoroutine(ChangeScene("MainMenu"));

@@ -5,7 +5,8 @@ using UnityEngine;
 public class IgnoreAllButPlayer : MonoBehaviour {
     private List<string> doNotIgnoreGameObjects = new List<string>(new string[] {
             "Player",
-            "Floor"
+            "Floor",
+            "MediumCoin"
     });
 
     private void OnCollisionEnter2D(Collision2D collision)
