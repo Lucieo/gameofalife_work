@@ -10,6 +10,7 @@ public class Player : Character
 {
     private static Player instance;
     public event DeadEventHandler Dead;
+    private Fading fading;
 
     [SerializeField] private Stat healthStat;
 
@@ -117,6 +118,7 @@ public class Player : Character
         }
         
         garbage = new List<GameObject>();
+        fading = GameObject.Find("FadeScreen").GetComponent<Fading>();
     }
 
     void Update()
@@ -156,7 +158,6 @@ public class Player : Character
     {
         Rapetisser();
         Grow();
-
         if (!isBathInScene || (isBathInScene && !mAnimator.GetBool("pipe"))) {
             if (!TakingDamage && !IsDead)
             {
@@ -194,7 +195,7 @@ public class Player : Character
         {
             //Debug.Log("Trigger Land Animation");
             // land = true triggers landing animation
-            mAnimator.SetBool("land", true);
+            // mAnimator.SetBool("land", true);
         }
 
         // If we aren't attacking, or sliding, and are either on the ground or in the air, we move.
@@ -230,11 +231,15 @@ public class Player : Character
         }
     }
 
+    public void Land() {
+        mAnimator.SetBool("land", true);
+    }
+
     // Checks inputs
     private void HandleInput()
     {
         //Block all movement when level is won
-        if (!hasWon)
+        if (!hasWon && !IsDead)
         {
             if (Input.GetButtonDown("Fire1") && !hasWon)
             {
@@ -323,10 +328,9 @@ public class Player : Character
             base.ThrowKnife(value);
         }
         ThrowPlayer.Play();
-
     }
 
-    public override IEnumerator TakeDamage(int damage = 10)
+    public override IEnumerator TakeDamage(int damage = DEFAULT_FORCE)
     {
         if (!immortal)
         {
@@ -372,7 +376,7 @@ public class Player : Character
         }
     }
 
-    private void Death(bool disappear = false)
+    public void Death(bool disappear = false)
     {
         mAnimator.SetLayerWeight(1, 0);
         mAnimator.SetTrigger("death");
@@ -387,6 +391,13 @@ public class Player : Character
 
     public override void AfterDeath()
     {
+        sharedGameManager.Life -= 1;
+        if (sharedGameManager.isGameOver)
+        {
+            StartCoroutine(ChangeScene("End"));
+            return;
+        }
+
         MyRigidbody.velocity = Vector2.zero;
         this.transform.eulerAngles = new Vector3(0, 0, 0);
         mAnimator.SetTrigger("idle");
@@ -406,23 +417,21 @@ public class Player : Character
     public override void OnTriggerEnter2D(Collider2D other)
     {
         string tag = other.gameObject.tag;
-        // Debug.Log("Player OnTriggerEnter2D with: " + tag);
         base.OnTriggerEnter2D(other);
         if (tag == "MediumCoin")
         {
-            GameManager.Instance.CollectedCoins += 25;
+            sharedGameManager.CollectedCoins += 25;
             Destroy(other.gameObject);
             CollectibleSound.Play();
         }
         else if (tag == "SmallCoin")
         {
-            GameManager.Instance.CollectedCoins += 10;
+            sharedGameManager.CollectedCoins += 10;
             Destroy(other.gameObject);
             CollectibleSound.Play();
         }
         else if (tag == "Poison")
         {
-            // Debug.Log("Poison");
             PoisonSound.Play();
             healthStat.CurrentValue -= 10;
             Destroy(other.gameObject);
@@ -440,7 +449,7 @@ public class Player : Character
         }
         else if (tag == "HighBaby")
         {
-            GameManager.Instance.CollectedCoins += 50;
+            sharedGameManager.CollectedCoins += 50;
             CollectibleSound.Play();
             Destroy(other.gameObject);
             StartCoroutine(GetHigh());
@@ -448,40 +457,34 @@ public class Player : Character
         else if (tag == "DrunkBaby")
         {
             DrunkSound.Play();
-            GameManager.Instance.CollectedCoins += 50;
+            sharedGameManager.CollectedCoins += 50;
             CollectibleSound.Play();
             Destroy(other.gameObject);
             StartCoroutine(GetDrunk());
         }
         else if (tag == "EndCyrilEtudes")
         {
-            HasWonLevel();
-            StartCoroutine(ChangeScene("CyrilForet"));
+            HasWonLevel("CyrilForet");
         }
         else if (tag == "EndCyrilForest")
         {
-            HasWonLevel();
-            StartCoroutine(ChangeScene("CyrilNantes"));
+            HasWonLevel("CyrilNantes");
         }
         else if (tag == "EndCyrilTown")
         {
-            HasWonLevel();
-            StartCoroutine(ChangeScene("MainMenu"));
+            HasWonLevel("ScoreRecord");
         }
         else if (tag == "EndAnaisPoudlard")
         {
-            HasWonLevel();
-            StartCoroutine(ChangeScene("AnaisHopital"));
+            HasWonLevel("AnaisHopital");
         }
         else if (tag == "EndAnaisHopital")
         {
-            HasWonLevel();
-            StartCoroutine(ChangeScene("AnaisNantes"));
+            HasWonLevel("AnaisNantes");
         }
         else if (tag == "EndAnaisTown")
         {
-            HasWonLevel();
-            StartCoroutine(ChangeScene("MainMenu"));
+            HasWonLevel("ScoreRecord");
         }
         // NOAM
         else if (tag == "BathCollider")
@@ -530,8 +533,11 @@ public class Player : Character
         }
         else if (tag == "EndNoamTown")
         {
-            HasWonLevel();
-            StartCoroutine(ChangeScene("MainMenu"));
+            HasWonLevel("NoamLit");
+        }
+        else if (tag == "EndNoamLit")
+        {
+            HasWonLevel("ScoreRecord");
         }
         else if (tag == "Death")
         {
@@ -554,7 +560,7 @@ public class Player : Character
     {
         if (other.gameObject.tag == "Coin")
         {
-            GameManager.Instance.CollectedCoins += 50;
+            sharedGameManager.CollectedCoins += 50;
             Destroy(other.gameObject);
             CollectCoin.Play();
         }
@@ -570,7 +576,7 @@ public class Player : Character
     {
         yield return new WaitForSeconds(5f);
         //Start fading
-        float fadeTime = GameObject.Find("FadeScreen").GetComponent<Fading>().BeginFade(1);
+        float fadeTime = fading.BeginFade(1);
         yield return new WaitForSeconds(fadeTime);
         mAnimator.SetBool("win", false);
         immortal = false;
@@ -578,8 +584,13 @@ public class Player : Character
         SceneManager.LoadScene(LevelName);
     }
 
-    private void HasWonLevel()
+    private void HasWonLevel(string nextLevel)
     {
+        if (nextLevel == "End")
+        {
+            sharedGameManager.Win();
+        }
+
         //set character in animation win
         mAnimator.SetBool("win", true);
         //Block all movements
@@ -591,6 +602,7 @@ public class Player : Character
         //Play Music
         BackMusic.Stop();
         WinLevel.Play();
+        StartCoroutine(ChangeScene(nextLevel));
     }
 
 

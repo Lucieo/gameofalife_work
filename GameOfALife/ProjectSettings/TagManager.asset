@@ -46,6 +46,8 @@ TagManager:
   - DrunkBaby
   - Distributeur
   - Resume
+  - MovingPlatform
+  - EndNoamLit
   layers:
   - Default
   - TransparentFX
@@ -91,4 +93,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: front
+    uniqueID: 4125875317
     locked: 0

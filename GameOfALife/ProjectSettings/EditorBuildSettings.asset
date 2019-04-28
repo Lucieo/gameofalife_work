@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Assets/Scenes/AnaisHopital.unity
     guid: e23ec9fc6226c4796950a086240cea65
   - enabled: 1
+    path: Assets/Assets/Scenes/ScoreRecord.unity
+    guid: c9fdf3565b5cf884ba6bd6b4706067f8
+  - enabled: 1
     path: Assets/Assets/Scenes/CyrilEtudes.unity
     guid: 8ea0221877591427a990e00735260575
   - enabled: 1
@@ -32,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Assets/Scenes/Noam.unity
     guid: d08d8d6590d58e042bc67b31e52cc1c3
+  - enabled: 1
+    path: Assets/Assets/Scenes/End.unity
+    guid: f07ca5d530b12c34d9ab540e366b3910
+  - enabled: 1
+    path: Assets/Assets/Scenes/ScoreMenu.unity
+    guid: c442b885a2b14d84e998be62a2138f4b
   m_configObjects: {}

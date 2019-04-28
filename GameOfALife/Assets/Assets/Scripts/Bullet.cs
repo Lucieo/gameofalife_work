@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float speed;
     private Vector2 direction;
+    [SerializeField] string facing;
 
     private Rigidbody2D mRigidBody;
 
@@ -23,7 +24,12 @@ public class Bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        mRigidBody.velocity = direction * speed;
+        if(facing=="right"){
+            mRigidBody.velocity = Vector2.right * speed;
+        }
+        else{
+            mRigidBody.velocity = Vector2.left * speed;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
