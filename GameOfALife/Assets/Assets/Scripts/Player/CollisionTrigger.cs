@@ -11,7 +11,7 @@ public class CollisionTrigger : MonoBehaviour {
 
     private List<string> ignoreGameObjects = new List<string>(new string[] {
             "Player",
-            "Floor"
+            "Floor",
     });
 
     // Use this for initialization
