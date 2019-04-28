@@ -158,7 +158,6 @@ public class Player : Character
     {
         Rapetisser();
         Grow();
-        Debug.Log(IsGrounded());
         if (!isBathInScene || (isBathInScene && !mAnimator.GetBool("pipe"))) {
             if (!TakingDamage && !IsDead)
             {
@@ -325,7 +324,6 @@ public class Player : Character
             base.ThrowKnife(value);
         }
         ThrowPlayer.Play();
-
     }
 
     public override IEnumerator TakeDamage(int damage = DEFAULT_FORCE)
