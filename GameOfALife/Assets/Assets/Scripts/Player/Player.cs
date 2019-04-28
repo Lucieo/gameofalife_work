@@ -195,7 +195,7 @@ public class Player : Character
         {
             //Debug.Log("Trigger Land Animation");
             // land = true triggers landing animation
-            mAnimator.SetBool("land", true);
+            // mAnimator.SetBool("land", true);
         }
 
         // If we aren't attacking, or sliding, and are either on the ground or in the air, we move.
@@ -229,6 +229,10 @@ public class Player : Character
             var forward = vInput * movementSpeed;
             MyRigidbody.velocity = new Vector3(MyRigidbody.velocity.x, forward, 0);
         }
+    }
+
+    public void Land() {
+        mAnimator.SetBool("land", true);
     }
 
     // Checks inputs
