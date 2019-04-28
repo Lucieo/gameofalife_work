@@ -24,6 +24,7 @@ public class Stat
         get { return currentValue; }
         set
         {
+            //Debug.Log("Stat.cs value =" + value);
             currentValue = Mathf.Clamp(value, 0, MaxValue);
             bar.Value = currentValue;
         }

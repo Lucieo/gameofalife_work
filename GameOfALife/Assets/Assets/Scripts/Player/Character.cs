@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public abstract class Character : MonoBehaviour {
 
+    protected const int DEFAULT_FORCE = 10;
+    protected GameManager sharedGameManager;
     [SerializeField]
     protected float movementSpeed;
 
@@ -48,11 +50,12 @@ public abstract class Character : MonoBehaviour {
     public float duration = 5f;
     protected float timer = 0f;
 
-    public int force = 10;
+    public int force = DEFAULT_FORCE;
 
 
     // Use this for initialization
     public virtual void Start() {
+        sharedGameManager = GameManager.Instance;
         mAnimator = GetComponent<Animator>();
         facingRight = true;
         mSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -90,7 +93,7 @@ public abstract class Character : MonoBehaviour {
         if (damageSources.Contains(other.tag)) {
             Character character = other.gameObject.GetComponent<Character>();
             Character parentCharacter = other.gameObject.GetComponentInParent<Character>();
-            StartCoroutine(TakeDamage(character != null ? character.force : parentCharacter != null ? parentCharacter.force : 10));
+            StartCoroutine(TakeDamage(character != null ? character.force : parentCharacter != null ? parentCharacter.force : DEFAULT_FORCE));
             if (!unDestroyableDamageSources.Contains(other.tag))
             {
                 Destroy(other.gameObject);
@@ -102,7 +105,6 @@ public abstract class Character : MonoBehaviour {
     {
         if (startRapetisser)
         {
-            Debug.Log("Rapetisser");
             float scale = Mathf.Lerp(maxSize, minSize, timer * durationInv);
             timer += Time.deltaTime;
             this.transform.localScale = new Vector3(facingRight ? scale : -scale, scale, 0f);
