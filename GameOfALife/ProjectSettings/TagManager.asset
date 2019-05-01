@@ -48,6 +48,7 @@ TagManager:
   - Resume
   - MovingPlatform
   - EndNoamLit
+  - Grossesse
   layers:
   - Default
   - TransparentFX

@@ -194,8 +194,8 @@ public class Player : Character
         if (MyRigidbody.velocity.y > 0 && !this.OnGround)
         {
             //Debug.Log("Trigger Land Animation");
-            // land = true triggers landing animation
-            // mAnimator.SetBool("land", true);
+            //land = true;
+            mAnimator.SetBool("land", true);
         }
 
         // If we aren't attacking, or sliding, and are either on the ground or in the air, we move.
@@ -427,6 +427,18 @@ public class Player : Character
         else if (tag == "SmallCoin")
         {
             sharedGameManager.CollectedCoins += 10;
+            Destroy(other.gameObject);
+            CollectibleSound.Play();
+        }
+        else if (tag == "Grossesse")
+        {
+            sharedGameManager.CollectedCoins += 100;
+            Destroy(other.gameObject);
+            other.GetComponent<AudioSource>().Play();
+        }
+        else if (tag == "MegaCoin")
+        {
+            sharedGameManager.CollectedCoins += 100;
             Destroy(other.gameObject);
             CollectibleSound.Play();
         }
