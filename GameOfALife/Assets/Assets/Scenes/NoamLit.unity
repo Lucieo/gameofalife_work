@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 201855745}
   - component: {fileID: 201855744}
   m_Layer: 8
-  m_Name: CyrilWin (1)
+  m_Name: CyrilWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2664,7 +2664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -305, y: 270}
+  m_AnchoredPosition: {x: -300, y: 200}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724451085
@@ -7242,7 +7242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778498605, guid: 2cd193227d96341ecaf090fe5fc8a827, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 6
+      value: 7.56
       objectReference: {fileID: 0}
     - target: {fileID: 1778498605, guid: 2cd193227d96341ecaf090fe5fc8a827, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
@@ -7256,13 +7256,21 @@ PrefabInstance:
       propertyPath: m_AutoTiling
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1778498605, guid: 2cd193227d96341ecaf090fe5fc8a827, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 7.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778498605, guid: 2cd193227d96341ecaf090fe5fc8a827, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1778498610, guid: 2cd193227d96341ecaf090fe5fc8a827, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.08
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 1778498610, guid: 2cd193227d96341ecaf090fe5fc8a827, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 1778498610, guid: 2cd193227d96341ecaf090fe5fc8a827, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7446,7 +7454,7 @@ PrefabInstance:
     - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
         type: 3}
       propertyPath: isBathInScene
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
         type: 3}

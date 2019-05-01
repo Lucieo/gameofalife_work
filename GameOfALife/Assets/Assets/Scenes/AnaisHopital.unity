@@ -212,11 +212,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646205075}
     m_Modifications:
-    - target: {fileID: 5171640527258845260, guid: 2aa15a65223cc4c4dba710559d9b0f36,
-        type: 3}
-      propertyPath: m_Name
-      value: Hurt
-      objectReference: {fileID: 0}
     - target: {fileID: 5171640527258845263, guid: 2aa15a65223cc4c4dba710559d9b0f36,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -271,6 +266,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171640527258845260, guid: 2aa15a65223cc4c4dba710559d9b0f36,
+        type: 3}
+      propertyPath: m_Name
+      value: Hurt
       objectReference: {fileID: 0}
     - target: {fileID: 5171640527258845262, guid: 2aa15a65223cc4c4dba710559d9b0f36,
         type: 3}
@@ -1058,7 +1058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -305, y: 269}
+  m_AnchoredPosition: {x: -300, y: 200}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &197246552
@@ -2191,12 +2191,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Virus
       objectReference: {fileID: 0}
-    - target: {fileID: 212196920747482684, guid: ca11ccabfdec149f6b4c2e2d03615b95,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8eed26c591b5f4ef7b61e35c925ed85b,
-        type: 3}
     - target: {fileID: 4279348153379418, guid: ca11ccabfdec149f6b4c2e2d03615b95, type: 3}
       propertyPath: m_LocalPosition.x
       value: 207.938
@@ -2253,6 +2247,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.512272
       objectReference: {fileID: 0}
+    - target: {fileID: 212196920747482684, guid: ca11ccabfdec149f6b4c2e2d03615b95,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8eed26c591b5f4ef7b61e35c925ed85b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca11ccabfdec149f6b4c2e2d03615b95, type: 3}
 --- !u!4 &424593102 stripped
@@ -3185,11 +3185,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 617031432}
     m_Modifications:
-    - target: {fileID: 8609197567770305498, guid: 2456504211f4ccf49b8149829f78f014,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
     - target: {fileID: 8609197567770305499, guid: 2456504211f4ccf49b8149829f78f014,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3294,6 +3289,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609197567770305498, guid: 2456504211f4ccf49b8149829f78f014,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2456504211f4ccf49b8149829f78f014, type: 3}
@@ -4261,11 +4261,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646205075}
     m_Modifications:
-    - target: {fileID: 6125445614244213542, guid: cf9f618443cea4f389ef64ebbfdc8578,
-        type: 3}
-      propertyPath: m_Name
-      value: WinSound
-      objectReference: {fileID: 0}
     - target: {fileID: 6125445614244213543, guid: cf9f618443cea4f389ef64ebbfdc8578,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4320,6 +4315,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125445614244213542, guid: cf9f618443cea4f389ef64ebbfdc8578,
+        type: 3}
+      propertyPath: m_Name
+      value: WinSound
       objectReference: {fileID: 0}
     - target: {fileID: 6125445614244213536, guid: cf9f618443cea4f389ef64ebbfdc8578,
         type: 3}
@@ -5068,11 +5068,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646205075}
     m_Modifications:
-    - target: {fileID: 7695979586030126917, guid: 55d6231a6fc644b8ebf681733d0cedf7,
-        type: 3}
-      propertyPath: m_Name
-      value: ThrownPlayer
-      objectReference: {fileID: 0}
     - target: {fileID: 7695979586030126778, guid: 55d6231a6fc644b8ebf681733d0cedf7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5127,6 +5122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695979586030126917, guid: 55d6231a6fc644b8ebf681733d0cedf7,
+        type: 3}
+      propertyPath: m_Name
+      value: ThrownPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 7695979586030126779, guid: 55d6231a6fc644b8ebf681733d0cedf7,
         type: 3}
@@ -6659,12 +6659,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bacterie
       objectReference: {fileID: 0}
-    - target: {fileID: 212196920747482684, guid: ca11ccabfdec149f6b4c2e2d03615b95,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 64c33c5f3503141f8be8fcca5f4573eb,
-        type: 3}
     - target: {fileID: 4279348153379418, guid: ca11ccabfdec149f6b4c2e2d03615b95, type: 3}
       propertyPath: m_LocalPosition.x
       value: 123.270004
@@ -6721,6 +6715,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.512272
       objectReference: {fileID: 0}
+    - target: {fileID: 212196920747482684, guid: ca11ccabfdec149f6b4c2e2d03615b95,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 64c33c5f3503141f8be8fcca5f4573eb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca11ccabfdec149f6b4c2e2d03615b95, type: 3}
 --- !u!4 &1237475469 stripped
@@ -7879,12 +7879,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoisonSound
       objectReference: {fileID: 0}
-    - target: {fileID: 212398812710819448, guid: b77a4921f64bb4694931d89bb1bf505e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c8e0d46f1fdb94778a5984f090459bc5,
-        type: 3}
     - target: {fileID: 2095756602265636095, guid: cf496c45f8b684486bd6a1849d36ac5e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7945,6 +7939,12 @@ PrefabInstance:
       propertyPath: BypassReverbZones
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212398812710819448, guid: b77a4921f64bb4694931d89bb1bf505e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c8e0d46f1fdb94778a5984f090459bc5,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf496c45f8b684486bd6a1849d36ac5e, type: 3}
 --- !u!4 &1434573389 stripped
@@ -8887,11 +8887,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646205075}
     m_Modifications:
-    - target: {fileID: 4996669684180132061, guid: 32c096b2e486e410aa4e70cf0d64bfb0,
-        type: 3}
-      propertyPath: m_Name
-      value: CollectibleSound
-      objectReference: {fileID: 0}
     - target: {fileID: 4996669684180132066, guid: 32c096b2e486e410aa4e70cf0d64bfb0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10323,61 +10318,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CollectCoin
       objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: healthStat.bar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: BackMusic
-      value: 
-      objectReference: {fileID: 1282876033}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: JumpSound
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: CollectibleSound
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: DeadSound
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: Throw
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: Hurt
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: CollectCoin
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: ThrowPlayer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: WinLevel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: LifePotion
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3548077554849946657, guid: 3e770f622c1a045b89e979f105f26769,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10437,6 +10377,61 @@ PrefabInstance:
         type: 3}
       propertyPath: BypassListenerEffects
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: healthStat.bar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: BackMusic
+      value: 
+      objectReference: {fileID: 1282876033}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: JumpSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: CollectibleSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: Throw
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: Hurt
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: CollectCoin
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: ThrowPlayer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: WinLevel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: LifePotion
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e770f622c1a045b89e979f105f26769, type: 3}

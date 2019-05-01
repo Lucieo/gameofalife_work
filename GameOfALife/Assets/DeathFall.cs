@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathFall : Character
+public class DeathFall : MonoBehaviour
 {
     private float lastYTravelDistance;
     private float lastYPosition;
@@ -32,7 +32,7 @@ public class DeathFall : Character
     }
 
     // Start is called before the first frame update
-    public override void Start()
+    void Start()
     {
       
     }
@@ -42,20 +42,4 @@ public class DeathFall : Character
     {
         ManageFall();
     }
-
-    public override void AfterDeath() { }
-
-    public override IEnumerator TakeDamage(int force)
-    {
-        yield return null;
-    }
-
-    public override bool IsDead
-    {
-        get
-        {
-            return false;
-        }
-    }
-
 }

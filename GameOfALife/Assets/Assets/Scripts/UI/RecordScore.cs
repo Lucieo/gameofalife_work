@@ -18,6 +18,9 @@ public class RecordScore : MonoBehaviour
     public GameObject Cyril;
     public GameObject Noam;
     public GameObject Anais;
+    public GameObject CyrilGameOver;
+    public GameObject NoamGameOver;
+    public GameObject AnaisGameOver;
 
     GameObject currentSelectedGameObject;
 
@@ -26,24 +29,34 @@ public class RecordScore : MonoBehaviour
         score.text = "" + GameManager.Instance.CollectedCoins;
         currentSelectedGameObject = EventSystem.current.firstSelectedGameObject;
         string characterName = PlayerStats.CurrentCharacter;
-        if (characterName == GameManager.NOAM_KEY)
-        {
-            Cyril.SetActive(false);
-            Anais.SetActive(false);
-            Noam.SetActive(true);
-        }
-        else if (characterName == GameManager.CYRIL_KEY)
-        {
-            Cyril.SetActive(true);
-            Anais.SetActive(false);
-            Noam.SetActive(false);
-        }
-        else if (characterName == GameManager.ANAIS_KEY)
-        {
-            Cyril.SetActive(false);
-            Anais.SetActive(true);
-            Noam.SetActive(false);
-        }
+
+        if (PlayerStats.isGameOver) {
+            if (characterName == GameManager.NOAM_KEY)
+            {
+                NoamGameOver.SetActive(true);
+            }
+            else if (characterName == GameManager.CYRIL_KEY)
+            {
+                CyrilGameOver.SetActive(true);
+            }
+            else if (characterName == GameManager.ANAIS_KEY)
+            {
+                AnaisGameOver.SetActive(true);
+            }
+        } else {
+            if (characterName == GameManager.NOAM_KEY)
+            {
+                Noam.SetActive(true);
+            }
+            else if (characterName == GameManager.CYRIL_KEY)
+            {
+                Cyril.SetActive(true);
+            }
+            else if (characterName == GameManager.ANAIS_KEY)
+            {
+                Anais.SetActive(true);
+            }
+        }        
     }
 
     void Update()
