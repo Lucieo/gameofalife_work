@@ -155,7 +155,6 @@ public class GameManager : MonoBehaviour {
         scores[PlayerStats.CurrentCharacter][playerName] = "" + PlayerStats.CollectedCoins;
         var serializedObject = JsonConvert.SerializeObject(scores);
         PlayerPrefs.SetString(SCORE_KEY, serializedObject);
-        Reset();
     }
 
     private void Reset()
@@ -176,6 +175,7 @@ public class GameManager : MonoBehaviour {
     }
     public void StartCharacter(string characterName)
     {
+        Reset();
         PlayerStats.CurrentCharacter = characterName;
         if (characterName == NOAM_KEY)
         {
