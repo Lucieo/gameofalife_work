@@ -137,10 +137,6 @@ public class Player : Character
     {
         if (!TakingDamage && !IsDead)
         {
-            /*if (transform.position.y <= -14f)
-            {
-                Death();
-            }*/
             HandleInput();
         }
 
@@ -276,7 +272,8 @@ public class Player : Character
 
     private void Flip(float hInput)
     {
-        if (!mAnimator.GetCurrentAnimatorStateInfo(0).IsTag("attack"))
+        AnimatorStateInfo animatorStateInfo = mAnimator.GetCurrentAnimatorStateInfo(0);
+        if (!animatorStateInfo.IsTag("attack"))
         {
             if ((hInput > 0 && !facingRight || hInput < 0 && facingRight) && !isPoisoned)
             {
@@ -308,16 +305,23 @@ public class Player : Character
 
     private void HandleLayers(bool onGround)
     {
+        AnimatorStateInfo animatorStateInfo = mAnimator.GetCurrentAnimatorStateInfo(0);
+        //bool stateShouldNotChange = animatorStateInfo.IsName("AnimDead") || animatorStateInfo.IsName("Win");
+        bool stateShouldNotChange = hasWon || IsDead;
         if (!onGround)
         {
             mAnimator.SetLayerWeight(1, 1);
-            mAnimator.Play("AnimIdle", 0);
+            if (!stateShouldNotChange) {
+                mAnimator.Play("AnimIdle", 0);
+            }
         }
 
         else
         {
             mAnimator.SetLayerWeight(1, 0);
-            mAnimator.Play("DefaultState", 1);
+            if (!stateShouldNotChange) {
+                mAnimator.Play("DefaultState", 1);
+            }
         }
     }
 
@@ -381,7 +385,8 @@ public class Player : Character
     }
 
     public void Death(bool disappear = false)
-    {
+    {   
+        healthStat.CurrentValue = 0;
         mAnimator.SetLayerWeight(1, 0);
         mAnimator.SetTrigger("death");
         BackMusic.Stop();

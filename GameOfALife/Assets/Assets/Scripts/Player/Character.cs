@@ -131,6 +131,8 @@ public abstract class Character : MonoBehaviour {
 
     protected void NormalSize()
     {
+        // See MovingPlatform.cs
+        this.transform.SetParent(null);
         this.transform.localScale = new Vector3(facingRight ? maxSize : -maxSize, maxSize, 0f);
     }
 
