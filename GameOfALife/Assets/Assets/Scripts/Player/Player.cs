@@ -41,14 +41,20 @@ public class Player : Character
 
     public Rigidbody2D MyRigidbody { get; set; }
     public bool Jump { get; set; }
-    
+
+    public bool IgnoreGround { get; set; }
     private bool _onGround;
-    public bool OnGround { 
-        get {
+    public bool OnGround
+    {
+        get
+        {
             return _onGround;
         }
-        set {
-            if (value != _onGround){
+        set
+        {
+            if (value != _onGround)
+            {
+                Debug.Log("OnGround change value =" + value);
                 HandleLayers(value);
             }
             _onGround = value;
@@ -128,7 +134,7 @@ public class Player : Character
                 bathAnimators[i++] = splash.GetComponent<Animator>();
             }
         }
-        
+
         garbage = new List<GameObject>();
         fading = GameObject.Find("FadeScreen").GetComponent<Fading>();
     }
@@ -166,7 +172,8 @@ public class Player : Character
     {
         Rapetisser();
         Grow();
-        if (!isBathInScene || (isBathInScene && !mAnimator.GetBool("pipe"))) {
+        if (!isBathInScene || (isBathInScene && !mAnimator.GetBool("pipe")))
+        {
             if (!TakingDamage && !IsDead)
             {
                 float hInput = Input.GetAxis("Horizontal");
@@ -176,7 +183,9 @@ public class Player : Character
                 HandleMovement(hInput, 0);
                 Flip(hInput);
             }
-        } else {
+        }
+        else
+        {
             float hInput = Input.GetAxis("Horizontal");
             float vInput = Input.GetAxis("Vertical");
             HandleMovement(hInput, vInput);
@@ -193,8 +202,22 @@ public class Player : Character
 
     private int legPosOffset = 1;
 
+
+    private void DebugJumpAnimation()
+    {
+        // If we aren't moving up or down, we're on the ground.
+        if (MyRigidbody.velocity.y > 0 && !this.OnGround)
+        {
+            //Debug.Log("Trigger Land Animation");
+            //land = true;
+            mAnimator.SetBool("land", true);
+        }
+    }
+
     private void HandleMovement(float hInput, float vInput)
     {
+
+        // DebugJumpAnimation();
 
         // If we aren't attacking, or sliding, and are either on the ground or in the air, we move.
         if (!Attack && (OnGround || airControl) && !hasWon)
@@ -229,7 +252,8 @@ public class Player : Character
         }
     }
 
-    public void Land() {
+    public void Land()
+    {
         mAnimator.SetBool("land", true);
     }
 
@@ -288,6 +312,7 @@ public class Player : Character
 
     private bool IsGrounded()
     {
+        if (IgnoreGround) return false;
         foreach (Transform point in groundPoints)
         {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(point.position, groundRadius, whatIsGround);
@@ -311,15 +336,16 @@ public class Player : Character
         if (!onGround)
         {
             mAnimator.SetLayerWeight(1, 1);
-            if (!stateShouldNotChange) {
+            if (!stateShouldNotChange)
+            {
                 mAnimator.Play("AnimIdle", 0);
             }
         }
-
         else
         {
             mAnimator.SetLayerWeight(1, 0);
-            if (!stateShouldNotChange) {
+            if (!stateShouldNotChange)
+            {
                 mAnimator.Play("DefaultState", 1);
             }
         }
@@ -385,7 +411,7 @@ public class Player : Character
     }
 
     public void Death(bool disappear = false)
-    {   
+    {
         healthStat.CurrentValue = 0;
         mAnimator.SetLayerWeight(1, 0);
         mAnimator.SetTrigger("death");

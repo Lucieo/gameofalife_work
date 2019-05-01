@@ -16,6 +16,7 @@ public class Apple : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), Player.Instance.GetComponent<Collider2D>(), true);
         m_Material = GetComponent<Renderer>().material;
         //renderer = GetComponent<Renderer>();
         startColor = new Color(m_Material.color.r, m_Material.color.g, m_Material.color.b, 1);

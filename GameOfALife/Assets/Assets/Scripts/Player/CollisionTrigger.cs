@@ -20,17 +20,27 @@ public class CollisionTrigger : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D(Collider2D other) {
+        string otherTag = other.gameObject.tag;
         //if player collides with platform
-        if (ignoreGameObjects.Contains(other.gameObject.tag)) {
+        if (ignoreGameObjects.Contains(otherTag)) {
             //ignore collision 
             Physics2D.IgnoreCollision(platformCollider, other, true);
+        }
+
+        if (otherTag == "Player") {
+            Player.Instance.IgnoreGround = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
+        string otherTag = other.gameObject.tag;
         //if player stops colliding then stop ignoring collision
-        if (ignoreGameObjects.Contains(other.gameObject.tag)) {
+        if (ignoreGameObjects.Contains(otherTag)) {
             Physics2D.IgnoreCollision(platformCollider, other, false);
+        }
+
+        if (otherTag == "Player") {
+            Player.Instance.IgnoreGround = false;
         }
     }
 }
