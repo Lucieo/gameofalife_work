@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Text coinTxt;
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private GameObject rapetisserPrefab;
-    
+
+    private Dictionary<string, List<string>> Scenes;
+
     public static GameManager Instance
     {
         get
@@ -71,7 +73,6 @@ public class GameManager : MonoBehaviour {
         get
         {
             string serialized = PlayerPrefs.GetString(SCORE_KEY);
-            Debug.Log("serialized score = " + serialized);
             return JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(serialized);
         }
     }
@@ -98,6 +99,37 @@ public class GameManager : MonoBehaviour {
     void Start () {
         InitScores();
     }
+
+    void InitScenesDictionary(){
+        Scenes = new Dictionary<string, List<string>>();
+        Scenes[CYRIL_KEY] = new List<string>{
+            "CyrilForet", "CyrilNantes", "CyrilEtudes"
+        };
+        Scenes[ANAIS_KEY] = new List<string>{
+            "AnaisEtudes", "AnaisNantes", "AnaisHopital"
+        };
+        Scenes[NOAM_KEY] = new List<string>{
+            "Noam", "NoamLit"
+        };
+    }
+    
+    private void OnEnable() {
+        InitScenesDictionary();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        foreach(KeyValuePair<string, List<string>> characterScenes in GameManager.Instance.Scenes){
+            if(characterScenes.Value.Contains(scene.name)){
+                PlayerStats.CurrentCharacter = characterScenes.Key;
+                break;
+            }
+        }
+    }
 	
 	public void Win () {
         PlayerStats.Win();
@@ -120,9 +152,6 @@ public class GameManager : MonoBehaviour {
     public void SaveScore(string playerName)
     {
         Dictionary<string, Dictionary<string, string>> scores = this.Scores;
-        //Debug.Log("CurrentCharacter = " + PlayerStats.CurrentCharacter);
-        //Debug.Log("playerName = " + playerName);
-        //Debug.Log("collectedCoins = " + PlayerStats.CollectedCoins);
         scores[PlayerStats.CurrentCharacter][playerName] = "" + PlayerStats.CollectedCoins;
         var serializedObject = JsonConvert.SerializeObject(scores);
         PlayerPrefs.SetString(SCORE_KEY, serializedObject);
