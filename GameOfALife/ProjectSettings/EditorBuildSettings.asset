@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Assets/Scenes/CyrilNantes.unity
     guid: 5bcdab793e4bd46f3bb7dfe7e59d0e97
   - enabled: 1
+    path: Assets/Assets/Scenes/NoamLit.unity
+    guid: 26f47f71bc968433d833a593a3d9a2fc
+  - enabled: 1
     path: Assets/Assets/Scenes/AnaisEtudes.unity
     guid: 5a5feeef10cfe47f6860350b6d176f67
   - enabled: 1
@@ -39,6 +42,6 @@ EditorBuildSettings:
     path: Assets/Assets/Scenes/End.unity
     guid: f07ca5d530b12c34d9ab540e366b3910
   - enabled: 1
-    path: Assets/Assets/Scenes/ScoreMenu.unity
+    path: 
     guid: c442b885a2b14d84e998be62a2138f4b
   m_configObjects: {}
