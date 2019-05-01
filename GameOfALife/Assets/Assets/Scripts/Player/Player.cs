@@ -41,7 +41,19 @@ public class Player : Character
 
     public Rigidbody2D MyRigidbody { get; set; }
     public bool Jump { get; set; }
-    public bool OnGround { get; set; }
+    
+    private bool _onGround;
+    public bool OnGround { 
+        get {
+            return _onGround;
+        }
+        set {
+            if (value != _onGround){
+                HandleLayers(value);
+            }
+            _onGround = value;
+        }
+    }
 
     private Color originalColor;
 
@@ -164,12 +176,9 @@ public class Player : Character
                 float hInput = Input.GetAxis("Horizontal");
 
                 OnGround = IsGrounded();
-                // Debug.Log("OnGround update:" + OnGround);
 
                 HandleMovement(hInput, 0);
                 Flip(hInput);
-
-                HandleLayers();
             }
         } else {
             float hInput = Input.GetAxis("Horizontal");
@@ -190,13 +199,6 @@ public class Player : Character
 
     private void HandleMovement(float hInput, float vInput)
     {
-        // If we aren't moving up or down, we're on the ground.
-        if (MyRigidbody.velocity.y > 0 && !this.OnGround)
-        {
-            //Debug.Log("Trigger Land Animation");
-            // land = true triggers landing animation
-            // mAnimator.SetBool("land", true);
-        }
 
         // If we aren't attacking, or sliding, and are either on the ground or in the air, we move.
         if (!Attack && (OnGround || airControl) && !hasWon)
@@ -304,16 +306,18 @@ public class Player : Character
         return false;
     }
 
-    private void HandleLayers()
+    private void HandleLayers(bool onGround)
     {
-        if (!OnGround)
+        if (!onGround)
         {
             mAnimator.SetLayerWeight(1, 1);
+            mAnimator.Play("AnimIdle", 0);
         }
 
         else
         {
             mAnimator.SetLayerWeight(1, 0);
+            mAnimator.Play("DefaultState", 1);
         }
     }
 
@@ -515,13 +519,11 @@ public class Player : Character
         {
             MyRigidbody.gravityScale = MyRigidbody.gravityScale == 0 ? 1 : 0;
             mAnimator.SetBool("pipe", mAnimator.GetBool("pipe") ? false : true);
-            //ToggleVisibility();
         }
         else if (tag == "PipeEnd")
         {
             MyRigidbody.gravityScale = 1;
             mAnimator.SetBool("pipe", false);
-            //SetToVisible();
         }
         else if (tag == "GravityUp")
         {
