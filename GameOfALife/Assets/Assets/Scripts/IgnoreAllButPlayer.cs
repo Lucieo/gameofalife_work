@@ -14,7 +14,7 @@ public class IgnoreAllButPlayer : MonoBehaviour {
         string tag = collision.gameObject.tag;
         if (!doNotIgnoreGameObjects.Contains(tag))
         {
-            Debug.Log(this.tag + " should ignore " + tag);
+            // Debug.Log(this.tag + " should ignore " + tag);
             Collider2D[] m_Colliders = GetComponents<Collider2D>();
             Collider2D collider = collision.gameObject.GetComponent<Collider2D>();
             foreach (Collider2D m_Collider in m_Colliders)
