@@ -42,7 +42,19 @@ public class Player : Character
     public Rigidbody2D MyRigidbody { get; set; }
     public bool Jump { get; set; }
 
-    public bool IgnoreGround { get; set; }
+    private bool ignoreGround = false;
+    public bool IgnoreGround
+    {
+        get
+        {
+            return ignoreGround;
+        }
+        set
+        {
+            Debug.Log("IgnoreGround =" + value);
+            ignoreGround = value;
+        }
+    }
     private bool _onGround;
     public bool OnGround
     {
