@@ -5556,7 +5556,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 561724586a8f64b90869d248558177d0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9fdd76bbb6d944bd5b424169bed70c39, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.503
   m_Pitch: 1
@@ -6561,14 +6561,14 @@ PrefabInstance:
       propertyPath: other
       value: 
       objectReference: {fileID: 1424006339}
+    - target: {fileID: 1822217313223324, guid: 46a0a4acc1b4d435fa1ae43cdc2a2afc, type: 3}
+      propertyPath: m_Name
+      value: Sword
+      objectReference: {fileID: 0}
     - target: {fileID: 68454588390054550, guid: 46a0a4acc1b4d435fa1ae43cdc2a2afc,
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1822217313223324, guid: 46a0a4acc1b4d435fa1ae43cdc2a2afc, type: 3}
-      propertyPath: m_Name
-      value: Sword
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -7213,9 +7213,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Simon :     Belle journ\xE9e pour une balade en for\xEAt! Utilise tes connaissances
-    en botanique pour r\xE9cup\xE9rer les plantes m\xE9dicinales dans les bois. Dirige
-    toi avec les fl\xE8ches, Z te permet de taper, V de lancer et espace de sauter.
-    Mets sur pause avec echap."
+    en botanique pour r\xE9cup\xE9rer les plantes m\xE9dicinales dans les bois. Attention
+    j'ai vu quelques druides de mauvais poil sur le chemin... Bon courage!"
 --- !u!222 &1619338892
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8572,7 +8571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921133814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.109151, y: 2.0919144, z: 0}
+  m_LocalPosition: {x: -12.382988, y: 2.0919144, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1316244747}

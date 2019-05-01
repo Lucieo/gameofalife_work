@@ -73,6 +73,7 @@ public class Player : Character
     [SerializeField] AudioSource PoisonSound;
     [SerializeField] AudioSource Splash;
     [SerializeField] AudioSource Water;
+    [SerializeField] AudioSource BabyLaugh;
 
     public bool isBathInScene = false;
     public bool isNoam = false;
@@ -434,7 +435,7 @@ public class Player : Character
         {
             sharedGameManager.CollectedCoins += 100;
             Destroy(other.gameObject);
-            other.GetComponent<AudioSource>().Play();
+            BabyLaugh.Play();
         }
         else if (tag == "MegaCoin")
         {

@@ -7896,9 +7896,8 @@ PrefabInstance:
     - target: {fileID: 3642378672031522527, guid: 1262f437e6bf6450c9ed7e9d05c751fd,
         type: 3}
       propertyPath: m_Text
-      value: "Camille :   Bienvenue \xE0 Manchester ! Une ann\xE9e riche en aventures
-        t\u2019attends. Attention aux moutons et aux trolls c'est une vraie invasion
-        ici!"
+      value: "Camille :   Ah, te voil\xE0 Ana\xEFs! \xE9vite les trolls et ramasse
+        les potions magiques pour te donner de la force. A toi de jouer !"
       objectReference: {fileID: 0}
     - target: {fileID: 3642378672376517687, guid: 1262f437e6bf6450c9ed7e9d05c751fd,
         type: 3}
