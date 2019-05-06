@@ -429,6 +429,9 @@ public class Player : Character
         mAnimator.SetLayerWeight(1, 0);
         mAnimator.SetTrigger("death");
         BackMusic.Stop();
+        if (isBathInScene) {
+            Water.Stop();
+        }
         DeadSound.Play();
         immortal = true;
         if (disappear)
@@ -547,9 +550,10 @@ public class Player : Character
             HasWonLevel("ScoreRecord");
         }
         // NOAM
-        else if (tag == "BathCollider")
+        else if (tag == "BathCollider" && isBathInScene)
         {
             bath.sortingOrder = 0;
+            Water.Stop();
         }
         else if (tag == "Rapetisser")
         {
@@ -562,7 +566,7 @@ public class Player : Character
             WillGrow();
             AddToGarbage(other.gameObject);
         }
-        else if (tag == "Bath")
+        else if (tag == "Bath" && isBathInScene)
         {
             Splash.Play();
             Water.Play();
