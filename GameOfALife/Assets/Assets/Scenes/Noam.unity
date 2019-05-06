@@ -204,7 +204,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ana\xEFs : Oh mais qu'il est trognon mon fiston!"
+  m_Text: "Ana\xEFs : Oh mais qu'il est trognon mon fiston!\nAttention aux drag\xE9es
+    enchant\xE9es, elles font rapetisser."
 --- !u!222 &18985994
 CanvasRenderer:
   m_ObjectHideFlags: 0
