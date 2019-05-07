@@ -98,7 +98,9 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         InitScores();
-        coinTxt.text = PlayerStats.CollectedCoins.ToString();
+        if (coinTxt != null) {
+            coinTxt.text = PlayerStats.CollectedCoins.ToString();
+        }
     }
 
     void InitScenesDictionary(){
