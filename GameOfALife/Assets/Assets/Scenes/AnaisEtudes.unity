@@ -7929,6 +7929,15 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3642378673475677123, guid: 1262f437e6bf6450c9ed7e9d05c751fd,
+        type: 3}
+      propertyPath: m_Text
+      value: "Yordan & Julie :   F\xE9licitations Ana\xEFs! Tu as fait preuve de courage,
+        hardiesse et force d'esprit pour accomplir les exploits d'une \xE9tudiante
+        Erasmus \xE0 Manchester! Bonne chance pour les prochains d\xE9fis, et n'oublie
+        pas: 'On peut trouver le bonheur m\xEAme dans les moments les plus sombres
+        ... Il suffit de se souvenir d'allumer la lumi\xE8re'"
+      objectReference: {fileID: 0}
     - target: {fileID: 3642378672031522524, guid: 1262f437e6bf6450c9ed7e9d05c751fd,
         type: 3}
       propertyPath: m_IsActive
@@ -7942,7 +7951,27 @@ PrefabInstance:
     - target: {fileID: 3642378672637646336, guid: 1262f437e6bf6450c9ed7e9d05c751fd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 200
+      value: 265
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642378671473178232, guid: 1262f437e6bf6450c9ed7e9d05c751fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 18.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642378671473178232, guid: 1262f437e6bf6450c9ed7e9d05c751fd,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 111.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642378673475677121, guid: 1262f437e6bf6450c9ed7e9d05c751fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642378673475677121, guid: 1262f437e6bf6450c9ed7e9d05c751fd,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 87
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1262f437e6bf6450c9ed7e9d05c751fd, type: 3}
