@@ -66,7 +66,7 @@ public class Player : Character
         {
             if (value != _onGround)
             {
-                Debug.Log("OnGround change value =" + value);
+                //Debug.Log("OnGround change value =" + value);
                 HandleLayers(value);
             }
             _onGround = value;
@@ -489,7 +489,7 @@ public class Player : Character
         }
         else if (tag == "MegaCoin")
         {
-            sharedGameManager.CollectedCoins += 100;
+            sharedGameManager.CollectedCoins += 500;
             Destroy(other.gameObject);
             CollectibleSound.Play();
         }
@@ -506,12 +506,13 @@ public class Player : Character
         else if (tag == "LifePotion")
         {
             LifePotion.Play();
-            healthStat.CurrentValue += 10;
+            healthStat.CurrentValue += 30;
             Destroy(other.gameObject);
             CureOfPoison();
         }
         else if (tag == "HighBaby")
         {
+            DrunkSound.Play();
             sharedGameManager.CollectedCoins += 50;
             CollectibleSound.Play();
             Destroy(other.gameObject);
@@ -605,6 +606,10 @@ public class Player : Character
         {
             Death(true);
         }
+        else if (tag == "BigBoss")
+        {
+            BackMusic.Stop();
+        }
     }
 
     private void CureOfPoison()
@@ -653,18 +658,20 @@ public class Player : Character
             sharedGameManager.Win();
         }
 
-        //set character in animation win
-        mAnimator.SetBool("win", true);
-        //Block all movements
-        hasWon = true;
-        MyRigidbody.velocity = Vector3.zero; ;
-        //Be immortal
-        immortal = true;
-        StartCoroutine(IndicateImmortal());
-        //Play Music
-        BackMusic.Stop();
-        WinLevel.Play();
-        StartCoroutine(ChangeScene(nextLevel));
+        if(!hasWon){
+            //set character in animation win
+            mAnimator.SetBool("win", true);
+            //Block all movements
+            hasWon = true;
+            MyRigidbody.velocity = Vector3.zero; ;
+            //Be immortal
+            immortal = true;
+            StartCoroutine(IndicateImmortal());
+            //Play Music
+            BackMusic.Stop();
+            WinLevel.Play();
+            StartCoroutine(ChangeScene(nextLevel));
+        }
     }
 
 
