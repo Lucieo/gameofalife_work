@@ -292,7 +292,7 @@ public class Player : Character
             {
                 mAnimator.SetTrigger("throw");
             }
-            if (Input.GetKey(KeyCode.DownArrow) && !isNoam)
+            if (!isNoam && (Input.GetKey(KeyCode.DownArrow) || Input.GetButton("Fire3")))
             {
                 mAnimator.SetBool("crouch", true);
                 GetComponent<BoxCollider2D>().size = crouchSize;
