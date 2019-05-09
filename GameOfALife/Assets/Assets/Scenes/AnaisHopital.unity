@@ -212,6 +212,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646205075}
     m_Modifications:
+    - target: {fileID: 5171640527258845260, guid: 2aa15a65223cc4c4dba710559d9b0f36,
+        type: 3}
+      propertyPath: m_Name
+      value: Hurt
+      objectReference: {fileID: 0}
     - target: {fileID: 5171640527258845263, guid: 2aa15a65223cc4c4dba710559d9b0f36,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -266,11 +271,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5171640527258845260, guid: 2aa15a65223cc4c4dba710559d9b0f36,
-        type: 3}
-      propertyPath: m_Name
-      value: Hurt
       objectReference: {fileID: 0}
     - target: {fileID: 5171640527258845262, guid: 2aa15a65223cc4c4dba710559d9b0f36,
         type: 3}
@@ -1056,9 +1056,9 @@ RectTransform:
   m_Father: {fileID: 617031432}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 200}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -25}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &197246552
@@ -3185,6 +3185,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 617031432}
     m_Modifications:
+    - target: {fileID: 8609197567770305498, guid: 2456504211f4ccf49b8149829f78f014,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
     - target: {fileID: 8609197567770305499, guid: 2456504211f4ccf49b8149829f78f014,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3289,11 +3294,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.49999994
-      objectReference: {fileID: 0}
-    - target: {fileID: 8609197567770305498, guid: 2456504211f4ccf49b8149829f78f014,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2456504211f4ccf49b8149829f78f014, type: 3}
@@ -4047,7 +4047,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680923318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.317261, y: 0.09191418, z: 0}
+  m_LocalPosition: {x: -11.0250225, y: 0.091914415, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2042290439}
@@ -4261,6 +4261,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646205075}
     m_Modifications:
+    - target: {fileID: 6125445614244213542, guid: cf9f618443cea4f389ef64ebbfdc8578,
+        type: 3}
+      propertyPath: m_Name
+      value: WinSound
+      objectReference: {fileID: 0}
     - target: {fileID: 6125445614244213543, guid: cf9f618443cea4f389ef64ebbfdc8578,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4315,11 +4320,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125445614244213542, guid: cf9f618443cea4f389ef64ebbfdc8578,
-        type: 3}
-      propertyPath: m_Name
-      value: WinSound
       objectReference: {fileID: 0}
     - target: {fileID: 6125445614244213536, guid: cf9f618443cea4f389ef64ebbfdc8578,
         type: 3}
@@ -5068,6 +5068,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646205075}
     m_Modifications:
+    - target: {fileID: 7695979586030126917, guid: 55d6231a6fc644b8ebf681733d0cedf7,
+        type: 3}
+      propertyPath: m_Name
+      value: ThrownPlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 7695979586030126778, guid: 55d6231a6fc644b8ebf681733d0cedf7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5122,11 +5127,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7695979586030126917, guid: 55d6231a6fc644b8ebf681733d0cedf7,
-        type: 3}
-      propertyPath: m_Name
-      value: ThrownPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 7695979586030126779, guid: 55d6231a6fc644b8ebf681733d0cedf7,
         type: 3}
@@ -5266,11 +5266,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1565463649}
     m_Modifications:
-    - target: {fileID: 61814043142955372, guid: b82fbdb0fa111427880282494510d759,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4898193896228614, guid: b82fbdb0fa111427880282494510d759, type: 2}
       propertyPath: m_LocalPosition.x
       value: -57.1
@@ -5302,6 +5297,11 @@ PrefabInstance:
     - target: {fileID: 4898193896228614, guid: b82fbdb0fa111427880282494510d759, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61814043142955372, guid: b82fbdb0fa111427880282494510d759,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 50114021041252614, guid: b82fbdb0fa111427880282494510d759, type: 2}
@@ -7445,8 +7445,8 @@ Transform:
   - {fileID: 2018329755}
   - {fileID: 1005987645}
   - {fileID: 197246553}
-  - {fileID: 169203065}
   - {fileID: 1608635831}
+  - {fileID: 169203065}
   - {fileID: 390435385}
   m_Father: {fileID: 607407175}
   m_RootOrder: 0
@@ -7879,6 +7879,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoisonSound
       objectReference: {fileID: 0}
+    - target: {fileID: 212398812710819448, guid: b77a4921f64bb4694931d89bb1bf505e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c8e0d46f1fdb94778a5984f090459bc5,
+        type: 3}
     - target: {fileID: 2095756602265636095, guid: cf496c45f8b684486bd6a1849d36ac5e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7939,12 +7945,6 @@ PrefabInstance:
       propertyPath: BypassReverbZones
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 212398812710819448, guid: b77a4921f64bb4694931d89bb1bf505e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c8e0d46f1fdb94778a5984f090459bc5,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf496c45f8b684486bd6a1849d36ac5e, type: 3}
 --- !u!4 &1434573389 stripped
@@ -10318,6 +10318,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: CollectCoin
       objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: healthStat.bar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: BackMusic
+      value: 
+      objectReference: {fileID: 1282876033}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: JumpSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: CollectibleSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: Throw
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: Hurt
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: CollectCoin
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: ThrowPlayer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: WinLevel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
+        type: 3}
+      propertyPath: LifePotion
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3548077554849946657, guid: 3e770f622c1a045b89e979f105f26769,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10378,61 +10433,6 @@ PrefabInstance:
       propertyPath: BypassListenerEffects
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: healthStat.bar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: BackMusic
-      value: 
-      objectReference: {fileID: 1282876033}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: JumpSound
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: CollectibleSound
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: DeadSound
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: Throw
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: Hurt
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: CollectCoin
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: ThrowPlayer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: WinLevel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227781431790996353, guid: 2cd193227d96341ecaf090fe5fc8a827,
-        type: 3}
-      propertyPath: LifePotion
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e770f622c1a045b89e979f105f26769, type: 3}
 --- !u!4 &1893121158 stripped
@@ -10481,7 +10481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921133814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.319372, y: 0.091914415, z: 0}
+  m_LocalPosition: {x: -11.0250225, y: 0.091914415, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1316244747}

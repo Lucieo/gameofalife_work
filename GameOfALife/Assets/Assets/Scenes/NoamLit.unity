@@ -2662,9 +2662,9 @@ RectTransform:
   m_Father: {fileID: 1203968960}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 200}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -25}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724451085
@@ -4128,6 +4128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1203968960}
     m_Modifications:
+    - target: {fileID: 8609197567770305498, guid: 2456504211f4ccf49b8149829f78f014,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
     - target: {fileID: 8609197567770305499, guid: 2456504211f4ccf49b8149829f78f014,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4232,11 +4237,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.49999994
-      objectReference: {fileID: 0}
-    - target: {fileID: 8609197567770305498, guid: 2456504211f4ccf49b8149829f78f014,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2456504211f4ccf49b8149829f78f014, type: 3}
@@ -4877,7 +4877,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177856210}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.094448, y: 1.5361228, z: -20}
+  m_LocalPosition: {x: -18.68635, y: 3.3361228, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1733371269}
@@ -4980,16 +4980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf37210f3ec54623bc2f354bc8c269a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0
-  knifePrefab: {fileID: 0}
-  knifeSpawn: {fileID: 0}
-  swordCollider: {fileID: 0}
-  damageSources: []
-  health: 0
-  maxSize: 0.6
-  minSize: 0.2
-  duration: 5
-  force: 10
   deathHeight: 10
 --- !u!81 &1200573051
 AudioListener:
@@ -5372,6 +5362,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Disappearing Platform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947000785581877223, guid: 63181e5245f7a44f5b3429cba1339de6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 7947000785581877222, guid: 63181e5245f7a44f5b3429cba1339de6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5652,7 +5647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421965730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.094448, y: 1.5361228, z: -20}
+  m_LocalPosition: {x: -18.68635, y: 3.3361228, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1140168484}
@@ -6225,6 +6220,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3312907347995569287, guid: aad5e28a073c765488be0f4b0c46e567,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 3312907347270481835, guid: aad5e28a073c765488be0f4b0c46e567,
         type: 3}
@@ -8778,6 +8778,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Disappearing Platform (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947000785581877223, guid: 63181e5245f7a44f5b3429cba1339de6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 7947000785581877222, guid: 63181e5245f7a44f5b3429cba1339de6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8951,6 +8956,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Disappearing Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947000785581877223, guid: 63181e5245f7a44f5b3429cba1339de6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 7947000785581877222, guid: 63181e5245f7a44f5b3429cba1339de6,
         type: 3}
