@@ -9,6 +9,7 @@ public class BigBossManager : MonoBehaviour
     public Animator DragonAnimator { get; private set; }
     [SerializeField]
     protected GameObject weaponPrefab;
+    [SerializeField] private GameObject coinPrefab;
     [SerializeField]
     protected Transform weaponSpawn;
     private int weaponIndex=0;
@@ -17,30 +18,31 @@ public class BigBossManager : MonoBehaviour
     private bool isMovingUp;
     private bool isMovingDown;
     public float speed;
-    public int BossLife=100;
-    public Renderer rend;
+    public int BossLife;
+    private Renderer rend;
+    private bool hasDied=false;
+    [SerializeField] private AudioSource musique;
+    [SerializeField] private AudioSource flySound;
+    [SerializeField] private AudioSource groanSound;
 
     // Start is called before the first frame update
     void Start()
     {
         DragonAnimator = GetComponent<Animator>();
-        StartCoroutine(DragonRoutine());
         startPos = transform.position;
         rend = GetComponent<Renderer>();
+        BossLife = 20;
     }
 
     private void Update()
     {
         FlyingBoss();
-        if(DragonAnimator.GetBool("isHurt")){
-            BlinkBoss(2);
-        }
 
     }
 
     IEnumerator DragonRoutine()
     {
-        while (true)
+        while (!DragonAnimator.GetBool("isDead"))
         {
             //Attack
             yield return new WaitForSeconds(Random.Range(0.5f, 2f));
@@ -72,7 +74,27 @@ public class BigBossManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag == "Sword" || other.gameObject.tag=="Knife"){
             DragonAnimator.SetBool("isHurt", true);
-            BossLife -= 10;        
+            StartCoroutine(Flasher());
+            if(BossLife>0){
+                BossLife -= 10;
+                Debug.Log(BossLife);
+            }
+            else if(!hasDied)
+            {
+                StopCoroutine("DragonRoutine");
+                Collider2D collider=GetComponent<Collider2D>();
+                collider.enabled = false;
+                Debug.Log("has died");
+                hasDied = true;
+                DragonAnimator.SetBool("isDead", true);
+                DragonAnimator.SetBool("isJumping", false);
+                DragonAnimator.SetBool("isFlying", false);
+                DragonAnimator.SetBool("isHurt", false);
+                DragonAnimator.SetBool("isLanding", false);
+                DragonAnimator.SetBool("isAttacking", false);
+                transform.position = startPos;
+                GameObject coin = (GameObject)Instantiate(coinPrefab, new Vector3(transform.position.x, transform.position.y - 1), Quaternion.identity);
+            }
         }
     }
 
@@ -115,20 +137,25 @@ public class BigBossManager : MonoBehaviour
         }
     }
 
-    private void BlinkBoss(int numBlink)
+    IEnumerator Flasher()
     {
-        for (int i = 0; i < numBlink; i++)
+        for (int i = 0; i < 4; i++)
         {
             rend.enabled = false;
-            StartCoroutine(Wait(.2f));
+            yield return new WaitForSeconds(.1f);
             rend.enabled = true;
-            StartCoroutine(Wait(.2f));
+            yield return new WaitForSeconds(.1f);
         }
     }
 
-    IEnumerator Wait(float seconds)
+    public void CollisionDetected(Collider2D childCollision)
     {
-        yield return new WaitForSeconds(seconds);
+        groanSound.Play();
+        StartCoroutine("DragonRoutine");
+        transform.position = startPos;
+        musique.Play();
     }
+
+
 
 }

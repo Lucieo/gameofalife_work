@@ -486,7 +486,7 @@ public class Player : Character
         }
         else if (tag == "MegaCoin")
         {
-            sharedGameManager.CollectedCoins += 100;
+            sharedGameManager.CollectedCoins += 500;
             Destroy(other.gameObject);
             CollectibleSound.Play();
         }
@@ -601,6 +601,10 @@ public class Player : Character
         else if (tag == "Death")
         {
             Death(true);
+        }
+        else if (tag == "BigBoss")
+        {
+            BackMusic.Stop();
         }
     }
 
