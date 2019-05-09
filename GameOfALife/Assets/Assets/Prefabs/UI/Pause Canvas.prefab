@@ -483,6 +483,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334912347d2864562925ba64186d6f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playSound: {fileID: 0}
+  scoreSound: {fileID: 0}
+  changeSound: {fileID: 0}
+  mainMenu: {fileID: 0}
+  backButton: {fileID: 0}
 --- !u!1 &3312907347425869460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,6 +1422,7 @@ GameObject:
   - component: {fileID: 3312907349252201790}
   - component: {fileID: 3312907349252201788}
   - component: {fileID: 3312907349252201789}
+  - component: {fileID: 4696114929622714266}
   m_Layer: 5
   m_Name: Pause Screen
   m_TagString: Untagged
@@ -1481,3 +1487,17 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &4696114929622714266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3312907349252201791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1254083943, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 3
+  m_AspectRatio: 1
