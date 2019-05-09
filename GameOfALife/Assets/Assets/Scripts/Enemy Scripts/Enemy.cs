@@ -143,13 +143,14 @@ public class Enemy : Character {
             GetComponent<BoxCollider2D>().enabled = false;
             if(shouldDropItem)
             {
-                Debug.Log("shouldDropItem " + dropItem);
+                //Debug.Log("shouldDropItem " + dropItem);
                 GameObject item = (GameObject) Instantiate(
                     dropItem == DropItem.Rapetisser ? GameManager.Instance.RapetisserPrefab : GameManager.Instance.CoinPrefab, 
                     new Vector3(transform.position.x, transform.position.y + 2), 
                     Quaternion.identity
                 );
-                Debug.Log(item.transform.name);
+                item.SetActive(true);
+                //Debug.Log(item.transform.name);
                 Physics2D.IgnoreCollision(item.GetComponent<Collider2D>(), GetComponent<Collider2D>());
                 shouldDropItem = false;
             }
