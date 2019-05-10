@@ -122,6 +122,8 @@ public class Player : Character
     //Gestion du mode high
     private bool isHigh = false;
 
+    private bool isStuck = false;
+
     private void Awake()
     {
         healthStat.Initialize();
@@ -229,11 +231,11 @@ public class Player : Character
 
     private void HandleMovement(float hInput, float vInput)
     {
-
+        if(!isStuck && !hasWon){
         // DebugJumpAnimation();
 
         // If we aren't attacking, or sliding, and are either on the ground or in the air, we move.
-        if (!Attack && (OnGround || airControl) && !hasWon)
+        if (!Attack && (OnGround || airControl))
         {
             if (isPoisoned)
             {
@@ -246,12 +248,14 @@ public class Player : Character
             }
         }
 
-        // If we want to jump and we aren't currently falling, add jump force
-        /*if (Jump && MyRigidbody.velocity.y == 0)
-        {
-            MyRigidbody.AddForce(new Vector2(0, jumpForce));
-        }*/
-        if (Jump && !mAnimator.GetBool("land"))
+            // If we want to jump and we aren't currently falling, add jump force
+            /*if (Jump && MyRigidbody.velocity.y == 0)
+            {
+                MyRigidbody.AddForce(new Vector2(0, jumpForce));
+            }*/
+
+
+            if (Jump && !mAnimator.GetBool("land") && !mAnimator.GetBool("throw") && (isNoam || OnGround))
         {
             MyRigidbody.AddForce(new Vector3(0, jumpForce, 0));
             Jump = false;
@@ -264,6 +268,11 @@ public class Player : Character
             MyRigidbody.velocity = new Vector3(MyRigidbody.velocity.x, forward, 0);
         }
     }
+        else{
+            mAnimator.SetFloat("speed", 0);
+            MyRigidbody.velocity = Vector3.zero;
+        }
+    }
 
     public void Land()
     {
@@ -274,7 +283,7 @@ public class Player : Character
     private void HandleInput()
     {
         //Block all movement when level is won
-        if (!hasWon && !IsDead)
+        if (!hasWon && !IsDead && !isStuck)
         {
             if (Input.GetButtonDown("Fire1") && !hasWon)
             {
@@ -489,7 +498,7 @@ public class Player : Character
         }
         else if (tag == "MegaCoin")
         {
-            sharedGameManager.CollectedCoins += 500;
+            sharedGameManager.CollectedCoins += 100;
             Destroy(other.gameObject);
             CollectibleSound.Play();
         }
@@ -608,8 +617,36 @@ public class Player : Character
         }
         else if (tag == "BigBoss")
         {
-            BackMusic.Stop();
+            BackMusic.Pause();
+            StartCoroutine(TemporaryStuck());
         }
+        else if(tag=="FINALPOINT"){
+            sharedGameManager.CollectedCoins += 500;
+            healthStat.CurrentValue += 80;
+            Destroy(other.gameObject);
+            CollectibleSound.Play();
+            BackMusic.Play();
+        }
+        else if (tag == "Dragon")
+        {
+            StartCoroutine(TakeDamage());
+            Debug.Log(tag);
+        }
+
+    }
+
+    IEnumerator TemporaryStuck(){
+        isStuck = true;
+        mAnimator.SetBool("stuck", true);
+        MyRigidbody.isKinematic = true;
+        Collider2D MyCollider = GetComponent<Collider2D>();
+        MyCollider.enabled = false;
+        yield return new WaitForSeconds(10f);
+        isStuck = false;
+        mAnimator.SetBool("stuck", false);
+        MyCollider.enabled = true;
+        MyRigidbody.isKinematic = false;
+        
     }
 
     private void CureOfPoison()
@@ -625,6 +662,7 @@ public class Player : Character
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "Coin")
         {
             sharedGameManager.CollectedCoins += 50;

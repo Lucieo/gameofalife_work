@@ -10,10 +10,11 @@ public class BigBossManager : MonoBehaviour
     [SerializeField]
     protected GameObject weaponPrefab;
     [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private GameObject bossNest;
     [SerializeField]
     protected Transform weaponSpawn;
     private int weaponIndex=0;
-    private Vector3 startPos;
+    [SerializeField] private Transform startPos;
     [SerializeField] private Transform target;
     private bool isMovingUp;
     private bool isMovingDown;
@@ -24,14 +25,23 @@ public class BigBossManager : MonoBehaviour
     [SerializeField] private AudioSource musique;
     [SerializeField] private AudioSource flySound;
     [SerializeField] private AudioSource groanSound;
+    [SerializeField] private AudioSource introSound;
+    [SerializeField] private AudioSource deadSound;
+    [SerializeField] private AudioSource winSound;
+    private Collider2D colliderDragon;
+    private bool isIntro = true;
+    [SerializeField] private GameObject limiteGauche;
+    [SerializeField] private GameObject limiteDroite;
+    [SerializeField] private GameObject dragonBase;
+
 
     // Start is called before the first frame update
     void Start()
     {
         DragonAnimator = GetComponent<Animator>();
-        startPos = transform.position;
         rend = GetComponent<Renderer>();
-        BossLife = 20;
+        BossLife = 100;
+        colliderDragon=GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -47,15 +57,19 @@ public class BigBossManager : MonoBehaviour
             //Attack
             yield return new WaitForSeconds(Random.Range(0.5f, 2f));
             DragonAnimator.SetBool("isAttacking", true);
+            //launchSound.Play();
             yield return new WaitForSeconds(Random.Range(0.5f, 2f));
             DragonAnimator.SetBool("isAttacking", true);
+            //launchSound.Play();
             yield return new WaitForSeconds(Random.Range(0.5f, 2f));
             DragonAnimator.SetBool("isAttacking", true);
+            //launchSound.Play();
             yield return new WaitForSeconds(3);
 
             //Take off
             isMovingUp = true;
             DragonAnimator.SetBool("isJumping", true);
+            flySound.Play();
             yield return new WaitForSeconds(4);
 
             //Send objects from sky
@@ -73,28 +87,35 @@ public class BigBossManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag == "Sword" || other.gameObject.tag=="Knife"){
-            DragonAnimator.SetBool("isHurt", true);
-            StartCoroutine(Flasher());
             if(BossLife>0){
+                DragonAnimator.SetBool("isHurt", true);
+                StartCoroutine(Flasher());
                 BossLife -= 10;
                 Debug.Log(BossLife);
             }
             else if(!hasDied)
             {
-                StopCoroutine("DragonRoutine");
-                Collider2D collider=GetComponent<Collider2D>();
-                collider.enabled = false;
-                Debug.Log("has died");
                 hasDied = true;
+                bossNest.GetComponent<Collider2D>().enabled = false;
+                colliderDragon.enabled = false;
+                StartCoroutine(Flasher());
+                StopCoroutine("DragonRoutine");
+                musique.Stop();
+                deadSound.Play();
                 DragonAnimator.SetBool("isDead", true);
                 DragonAnimator.SetBool("isJumping", false);
                 DragonAnimator.SetBool("isFlying", false);
                 DragonAnimator.SetBool("isHurt", false);
                 DragonAnimator.SetBool("isLanding", false);
                 DragonAnimator.SetBool("isAttacking", false);
-                transform.position = startPos;
                 GameObject coin = (GameObject)Instantiate(coinPrefab, new Vector3(transform.position.x, transform.position.y - 1), Quaternion.identity);
+                winSound.Play();
+                limiteDroite.SetActive(false);
+                limiteGauche.SetActive(false);
+                dragonBase.SetActive(false);
+                transform.position = startPos.position;
             }
+            Debug.Log(BossLife);
         }
     }
 
@@ -126,19 +147,24 @@ public class BigBossManager : MonoBehaviour
         }
         if (isMovingDown)
         {
-            if (transform.position == startPos)
+            if (transform.position == startPos.position)
             {
                 isMovingDown = false;
+                if(isIntro){
+                    isIntro = false;
+                    DragonAnimator.SetBool("isFlying", false);
+                }
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, startPos, step);
+                transform.position = Vector3.MoveTowards(transform.position, startPos.position, step);
             }
         }
     }
 
     IEnumerator Flasher()
     {
+        colliderDragon.enabled = false;
         for (int i = 0; i < 4; i++)
         {
             rend.enabled = false;
@@ -146,16 +172,26 @@ public class BigBossManager : MonoBehaviour
             rend.enabled = true;
             yield return new WaitForSeconds(.1f);
         }
+        colliderDragon.enabled = true;
+
+
     }
 
     public void CollisionDetected(Collider2D childCollision)
     {
-        groanSound.Play();
-        StartCoroutine("DragonRoutine");
-        transform.position = startPos;
         musique.Play();
+        //GameObject limits = GetComponent<Transform>().Find("Limites").gameObject;
+        introSound.Play();
+        DragonAnimator.SetBool("isFlying", true);
+        isMovingDown = true;
+        StartCoroutine(IntroWait());
+        //limits.SetActive(true);
     }
 
+    IEnumerator IntroWait(){
+        yield return new WaitForSeconds(10f);
+        StartCoroutine("DragonRoutine");
+    }
 
 
 }

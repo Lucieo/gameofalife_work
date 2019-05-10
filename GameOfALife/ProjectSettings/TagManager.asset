@@ -50,6 +50,8 @@ TagManager:
   - EndNoamLit
   - Grossesse
   - BigBoss
+  - FINALPOINT
+  - Dragon
   layers:
   - Default
   - TransparentFX
