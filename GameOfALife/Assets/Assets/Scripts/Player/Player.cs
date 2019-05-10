@@ -442,13 +442,16 @@ public class Player : Character
 
     public override void AfterDeath()
     {
+        Debug.Log("Player AfterDeath " + this);
         sharedGameManager.Life -= 1;
         if (sharedGameManager.isGameOver)
         {
-            StartCoroutine(ChangeScene("End"));
+            Debug.Log("Player AfterDeath isGameOver");
+            StartCoroutine(ChangeScene("End", false));
             return;
         }
 
+        Debug.Log("Player AfterDeath !isGameOver");
         MyRigidbody.velocity = Vector2.zero;
         this.transform.eulerAngles = new Vector3(0, 0, 0);
         mAnimator.SetTrigger("idle");
@@ -639,9 +642,11 @@ public class Player : Character
         garbage.Add(gameObject);
     }
 
-    private IEnumerator ChangeScene(string LevelName)
+    private IEnumerator ChangeScene(string LevelName, bool wait = true)
     {
-        yield return new WaitForSeconds(5f);
+        if (wait) {
+            yield return new WaitForSeconds(5f);
+        }
         //Start fading
         float fadeTime = fading.BeginFade(1);
         yield return new WaitForSeconds(fadeTime);
@@ -653,11 +658,6 @@ public class Player : Character
 
     private void HasWonLevel(string nextLevel)
     {
-        if (nextLevel == "End")
-        {
-            sharedGameManager.Win();
-        }
-
         if(!hasWon){
             //set character in animation win
             mAnimator.SetBool("win", true);
