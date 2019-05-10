@@ -133,10 +133,6 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
-	
-	public void Win () {
-        PlayerStats.Win();
-	}
 
     void InitScores()
     {
