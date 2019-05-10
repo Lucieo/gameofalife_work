@@ -26,7 +26,9 @@ public class BossDropper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Fade();
+        if(GetComponent<Renderer>().enabled){
+            Fade();
+        }
     }
 
     // https://answers.unity.com/questions/213267/fading-alpha-channel-over-time.html
@@ -54,7 +56,7 @@ public class BossDropper : MonoBehaviour
     {
         //Debug.Log("Apple Reset");
         startFading = false;
-        duration = Random.Range(1f, 4f);
+        duration = Random.Range(0.5f, 1f);
         m_Material.color = startColor;
         //transform.position = new Vector3(Random.Range(58f, 84f), 3.6f, 0.0f);
         //transform.rotation = Quaternion.Euler(0, 0, (int)Random.Range(-60f, 60f));
@@ -65,6 +67,7 @@ public class BossDropper : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if(other.gameObject.tag=="Player" && other.gameObject.tag == "Floor")
         this.tag = "Untagged";
         // Init, when the fading start, called once
         // Division is the devil, so I prepare the inverse of the duration
