@@ -108,7 +108,8 @@ public class Player : Character
     public bool isBathInScene = false;
     public bool isNoam = false;
 
-    private SpriteRenderer bath;
+    private GameObject bathGameObject;
+    private SpriteRenderer bathSpriteRenderer;
     private Animator[] bathAnimators;
     private List<GameObject> garbage;
 
@@ -138,7 +139,8 @@ public class Player : Character
 
         if (isBathInScene)
         {
-            bath = GameObject.FindGameObjectWithTag("Bath").GetComponent<SpriteRenderer>();
+            bathGameObject = GameObject.FindGameObjectWithTag("Bath");
+            bathSpriteRenderer = bathGameObject.GetComponent<SpriteRenderer>();
             bathAnimators = new Animator[2];
             GameObject[] splashes = GameObject.FindGameObjectsWithTag("Splash");
             int i = 0;
@@ -556,7 +558,11 @@ public class Player : Character
         // NOAM
         else if (tag == "BathCollider" && isBathInScene)
         {
-            bath.sortingOrder = 0;
+            bathSpriteRenderer.sortingOrder = 0;
+            EdgeCollider2D[] colliders = bathGameObject.GetComponents<EdgeCollider2D>();
+            foreach(EdgeCollider2D collider in colliders) {
+                collider.enabled = false;
+            }
             Water.Stop();
         }
         else if (tag == "Rapetisser")
@@ -581,8 +587,8 @@ public class Player : Character
         }
         else if (tag == "PipeStart")
         {
-            MyRigidbody.gravityScale = MyRigidbody.gravityScale == 0 ? 1 : 0;
-            mAnimator.SetBool("pipe", mAnimator.GetBool("pipe") ? false : true);
+            MyRigidbody.gravityScale = 0;
+            mAnimator.SetBool("pipe", true);
         }
         else if (tag == "PipeEnd")
         {
